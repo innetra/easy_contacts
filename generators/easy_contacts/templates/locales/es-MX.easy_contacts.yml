@@ -1,0 +1,79 @@
+"es-MX":
+  activerecord:
+
+    models:
+      contact: "Contacto"
+      person: "Contacto"
+      company: "Compañía"
+      phone: "Teléfono"
+      email: "Correo Electrónico"
+      address: "Domicilio"
+
+    attributes:
+      person:
+        name: "Nombre"
+        last_name: "Apellidos"
+        full_name: "Nombre Completo"
+      company:
+        name: "Compañía"
+      phone:
+        number: "Teléfono"
+      email:
+        address: "Email"
+      web_site:
+        address: "Web"
+
+  actions:
+    edit: "Editar"
+    delete: "Eliminar"
+
+  forms:
+    save: "Guardar"
+    cancel: "Cancelar"
+    update: "Actualizar"
+    optional_fields: "Datos Opcionales"
+
+  addresses:
+    title: "Domicilios"
+    add_link: "Agregar"
+  companies:
+    flash:
+      create: "Compañía creada."
+      update: "Compañía actualizada."
+    new:
+      title: "Registrar Nueva Compañía"
+      cancel: "Cancelar"
+    edit:
+      title: "Editar compañía \"{{name}}\""
+    show:
+      people_in_this_company: "Contactos"
+  contacts:
+    info:
+      title: "Contacto {{name}}"
+    index:
+      title: "Contactos"
+      new_person_link: "Registrar nuevo contacto"
+      new_company_link: "Registrar nueva companía"
+      add_link: "Agregar"
+  emails:
+    title: "Correo Electrónico"
+    add_link: "Agregar"
+  instant_messengers:
+    title: "Mensajero Instantaneo"
+    add_link: "Agregar"
+  people:
+    flash:
+      create: "Usuario creado."
+      update: "Usuario actualizado."
+    new:
+      title: "Registrar Nuevo Contacto"
+      cancel: "Cancelar"
+    edit:
+      title: "Editar contacto \"{{full_name}}\""
+    show:
+      title_description: "{{title}} en {{company}}"
+      contact_data: "Datos {{name}}"
+  phones:
+    title: "Teléfonos"
+    add_link: "Agregar"
+  web_sites:

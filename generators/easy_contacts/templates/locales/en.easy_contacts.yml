@@ -1,0 +1,54 @@
+en:
+
+  actions:
+    edit: "Edit"
+    delete: "Delete"
+
+  forms:
+    save: "Save"
+    cancel: "Cancel"
+    update: "Update"
+    optional_fields: "Optional Fields"
+
+  addresses:
+    title: "Addresses"
+    add_link: "add address"
+  companies:
+    flash:
+      create: "Company created."
+      update: "Company updated."
+    new:
+      title: "New Company"
+    edit:
+      title: "Edit Company \"{{name}}\""
+    show:
+      people_in_this_company: "Contacts"
+  contacts:
+    info:
+      title: "Contact {{name}}"
+    index:
+      title: "Contacts"
+      new_person_link: "add new contact"
+      new_company_link: "add new company"
+      add_link: "add"
+  emails:
+    title: "Email"
+    add_link: "add"
+  instant_messengers:
+    title: "Instant Messenger"
+    add_link: "add"
+  people:
+    flash:
+      create: "User created."
+      update: "User updated."
+    new:
+      title: "Add New Contact"
+    edit:
+      title: "Edit Contact  \"{{full_name}}\""
+    show:
+      title_description: "{{title}} at {{company}}"
+      contact_data: "Contact Data {{name}}"
+  phones:
+    title: "Phones"
+    add_link: "add"
+  web_sites:
