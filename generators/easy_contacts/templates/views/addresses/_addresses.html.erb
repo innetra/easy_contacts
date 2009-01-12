@@ -1,0 +1,11 @@
+<%% content_tag(:ul, :id => "addresses") do -%>
+  <%% for address in owner.addresses -%>
+    <%%= render :partial => address, :locals => { :owner => owner } %>
+  <%% end -%>
+<%% end -%>
+<p>
+  <%%= link_to_function t("addresses.add_link") do |page|
+    page.insert_html :bottom, :addresses,
+      :partial => Address.new, :locals => { :owner => owner }
+  end %>
+</p>

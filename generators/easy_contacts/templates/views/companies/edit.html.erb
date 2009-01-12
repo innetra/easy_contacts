@@ -1,0 +1,12 @@
+<%% content_for :header do -%>
+  <%%= stylesheet_link_tag "contacts", :media => :all %>
+<%% end -%>
+
+<h1>
+  <div class="title_actions">
+    <%%= link_to t("forms.cancel"), @company %>
+  </div>
+  <%%= t("companies.edit.title", :name => @company.name) %>
+</h1>
+
+<%%= render :partial => "/companies/company", :object => @company %>

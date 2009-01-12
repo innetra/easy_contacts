@@ -1,0 +1,14 @@
+<%% content_tag(:ul, :id => "phones") do -%>
+  <%% for phone in owner.phones -%>
+    <%%= render :partial => "/phones/phone",
+      :object => phone, :locals => { :owner => owner } %>
+  <%% end -%>
+<%% end -%>
+<p>
+  <%%= link_to_function t("phones.add_link") do |page|
+    page.insert_html :bottom, :phones, 
+      :partial => "/phones/phone",
+      :object => Phone.new,
+      :locals => { :owner => owner }
+  end %>
+</p>

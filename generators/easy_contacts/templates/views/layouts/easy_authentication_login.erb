@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Codebase [<%%= yield :title %>]</title>
+    <%%= stylesheet_link_tag 'easy_authentication/default', :media => :all %>
+    <%%= yield :header %>
+  </head>
+  <body>
+    <%% if flash.has_key? :notice -%>
+      <div class="flash">
+        <%%= flash[:notice] %>
+      </div>
+    <%% end -%>
+    <%% if flash.has_key? :error -%>
+      <div class="flash error">
+        <%%= flash[:error] %>
+      </div>
+    <%% end -%>
+    <%%= yield %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<%% content_for :header do -%>
+  <%%= stylesheet_link_tag "contacts", :media => :all %>
+<%% end -%>
+
+<%% content_for :sidebar do -%>
+  <%% shadowbox "options_section", :class => "sidebar_section" do %>
+    <%%= link_to t("contacts.index.new_person_link"), new_person_url %><br />
+    <%%= link_to t("contacts.index.new_company_link"), new_company_url %>
+  <%% end %>
+<%% end -%>
+<h1><%%= t("contacts.index.title") %></h1>
+
+<ul>
+  <%% for person in @people -%>
+    <%% content_tag_for(:li, person) do %>
+      <%%= link_to person.full_name, person,
+        :class => "full_name important" %><br />
+      <%%= person.title_description %>
+    <%% end %>
+  <%% end -%>
+</ul>

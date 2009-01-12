@@ -1,0 +1,26 @@
+#person_name,
+#person_last_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.person {
+  padding: 10px 0;
+}
+
+.full_name {
+  font-size: 18px;
+}
+
+.address table {
+  padding: 0;
+  margin: 0;
+
+}
+
+.address td {
+  padding: 0;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  margin: 0;
+}

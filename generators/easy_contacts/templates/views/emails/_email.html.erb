@@ -1,0 +1,20 @@
+<%% content_tag_for(:li, email) do -%>
+  <%% fields_for "#{dom_class(owner)}[email_attributes][]", email do |form| -%>
+    <%% unless email.new_record? -%>
+      <%%= form.hidden_field :id, :index => nil %>
+    <%% end -%>
+    <%%= form.text_field :address, :index => nil %>
+    <%%= form.collection_select :email_type_id, EmailType.all,
+      :id, :description, {}, { :index => nil } %>
+    <%% if email.new_record? -%>
+      <%%= link_to_function t("actions.delete"),
+        "$(this).up('li').remove();",
+        :class => :red %>
+    <%% else -%>
+      <%%= link_to_remote t("actions.delete"), :url => email,
+        :confirm => t("actions.confirm.delete"),
+        :method => :delete,
+        :html => { :class => :red } %>
+    <%% end -%>
+  <%% end -%>
+<%% end -%>

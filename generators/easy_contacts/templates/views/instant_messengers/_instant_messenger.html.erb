@@ -1,0 +1,21 @@
+<%% content_tag_for(:li, instant_messenger) do -%>
+  <%% fields_for "#{dom_class(owner)}[instant_messenger_attributes][]",
+    instant_messenger do |form| -%>
+    <%% unless instant_messenger.new_record? -%>
+      <%%= form.hidden_field :id, :index => nil %>
+    <%% end -%>
+    <%%= form.text_field :nick, :index => nil %>
+    <%%= form.collection_select :instant_messenger_protocol_id,
+      InstantMessengerProtocol.all, :id, :name, {}, { :index => nil } %>
+    <%%= form.collection_select :instant_messenger_type_id,
+      InstantMessengerType.all, :id, :description, {}, { :index => nil } %>
+    <%% if instant_messenger.new_record? -%>
+      <%%= link_to_function t("actions.delete"), "$(this).up('li').remove();", :class => :red %>
+    <%% else -%>
+      <%%= link_to_remote t("actions.delete"), :url => instant_messenger,
+        :confirm => t("actions.confirm.delete"),
+        :method => :delete,
+        :html => { :class => :red } %>
+    <%% end -%>
+  <%% end -%>
+<%% end -%>

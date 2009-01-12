@@ -1,0 +1,35 @@
+<%% form_for person do |form| %>
+  <%%= error_messages_for :user %>
+  <table>
+    <tr>
+      <td>
+        <%%= form.label :name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :name %>
+      </td>
+      <td>
+        <%%= form.label :last_name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :last_name %>
+      </td>
+    </tr>
+  </table>
+  <p>
+    <%%= form.label :title %><br />
+    <%%= form.text_field :title, :size => "40" %>
+  </p>
+  <%% fields_for "person[company_attributes]", @person.company do |form| -%>
+    <p>
+      <%%= form.label :name, t("activerecord.attributes.company.name") %><br />
+      <%%= form.text_field :name, :size => "40" %>
+    </p>
+  <%% end -%>
+
+  <%%= render :partial => "contacts/contact", :object => @person %>
+
+  <hr />
+  <p>
+    <%%= submit_tag t("forms.save") %>&nbsp;ó
+    <%%= link_to t("forms.cancel"), people_url, :class => :red %>
+  </p>
+<%% end %>
