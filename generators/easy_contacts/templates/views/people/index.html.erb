@@ -1,0 +1,21 @@
+<%% content_for :header do -%>
+  <%%= stylesheet_link_tag "easy_contacts/default", :media => :all %>
+  <%%= stylesheet_link_tag "easy_contacts/people", :media => :all %>
+<%% end -%>
+
+<%% content_for :sidebar do -%>
+  <%% shadowbox "options_section", :class => "sidebar_section" do %>
+    <%%= link_to t("people.index.new_person_link"), new_person_url %><br />
+  <%% end %>
+<%% end -%>
+<h1><%%= t("people.index.title") %></h1>
+
+<ul>
+  <%% for person in @people -%>
+    <%% content_tag_for(:li, person) do %>
+      <%%= link_to person.full_name, person,
+        :class => "full_name important" %><br />
+      <%%= person.title_description %>
+    <%% end %>
+  <%% end -%>
+</ul>

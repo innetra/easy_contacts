@@ -1,10 +1,10 @@
 class Person < Contact
 
-  belongs_to :user
   belongs_to :company
 
   validates_presence_of :name
   validates_presence_of :last_name
+  validates_uniqueness_of :name, :scope => :last_name
 
   def full_name
     "#{self.name} #{self.last_name}"

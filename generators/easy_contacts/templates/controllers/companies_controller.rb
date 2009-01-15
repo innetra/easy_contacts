@@ -1,5 +1,19 @@
 class CompaniesController < ApplicationController
 
+  def index
+    if params.has_key?(:search)
+      @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"] )
+    else
+      @companies = Company.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+      format.xml  { render :xml => @companies }
+    end
+  end
+
   def new
     @company = Company.new
     2.times { @company.phones.build }

@@ -1,15 +1,7 @@
-#person_name,
-#person_last_name {
-  font-size: 20px;
+#contact_details .label {
+  font-size: 10px;
   font-weight: bold;
-}
-
-.person {
-  padding: 10px 0;
-}
-
-.full_name {
-  font-size: 18px;
+  min-width: 60px;
 }
 
 .address table {

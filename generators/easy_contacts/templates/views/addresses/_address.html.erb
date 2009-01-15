@@ -1,19 +1,64 @@
+<style type="text/css">
+  div.auto_complete {
+    width: 350px;
+    background: #fff;
+  }
+  div.auto_complete ul {
+    border:1px solid #888;
+    margin:0;
+    padding:0;
+    width:100%;
+    list-style-type:none;
+  }
+  div.auto_complete ul li {
+    margin:0;
+    padding:3px;
+  }
+  div.auto_complete ul li.selected {
+    background-color: #ffb;
+  }
+  div.auto_complete ul strong.highlight {
+    color: #800;
+    margin:0;
+    padding:0;
+  }
+</style>
 <%% content_tag_for(:li, address) do -%>
   <%% fields_for "#{dom_class(owner)}[address_attributes][]", address do |form| -%>
     <%% unless address.new_record? -%>
       <%%= form.hidden_field :id, :index => nil %>
     <%% end -%>
-    <table cellpadding="0" cellspacing="0" border="0">
+    <table cellpadding="0" cellspacing="0" border="0" class="address">
       <tr>
         <td>
-          <%%= form.text_area :address, :size => "50x3", :index => nil %><br />
-          <%%= form.label :city %><br />
-          <%%= form.text_field :city, :index => nil %><br />
+          <%%= form.text_area :address, :index => nil, :size => "50x3" %><br />
+          <%%= form.label :city_name %><br />
+          <%%= form.text_field :city_name, :index => nil, :autocomplete => :off %>
+          <div id="<%%= dom_class(owner) -%>_address_attributes_city_name_auto_complete" class="auto_complete" style="display: none;"></div>
+          <script type="text/javascript">
+          //<![CDATA[
+          var address_city_name_auto_completer = new Ajax.Autocompleter('<%%= dom_class(owner) -%>_address_attributes__city_name',
+            '<%%= dom_class(owner) -%>_address_attributes_city_name_auto_complete',
+            '<%%= formatted_cities_url(:js) -%>',
+            {callback:function(element, value) { return 'search=' + element.value }, method:'get'})
+          //]]>
+          </script>
+          <br />
           <table cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td>
-                <%%= form.label :province %><br />
-                <%%= form.text_field :province, :index => nil %>
+                <%%= form.label :province_name %><br />
+                <%%= form.text_field :province_name, :index => nil, :autocomplete => :off %>
+                <div id="<%%= dom_class(owner) -%>_address_attributes_province_name_auto_complete" class="auto_complete" style="display: none;"></div>
+                <script type="text/javascript">
+                //<![CDATA[
+                var address_province_name_auto_completer = new Ajax.Autocompleter('<%%= dom_class(owner) -%>_address_attributes__province_name',
+                  '<%%= dom_class(owner) -%>_address_attributes_province_name_auto_complete',
+                  '<%%= formatted_provinces_url(:js) -%>',
+                  {callback:function(element, value) { return 'search=' + element.value }, method:'get'})
+                //]]>
+                </script>
+                <br />
               </td>
               <td>
                 <%%= form.label :zip %><br />
@@ -21,20 +66,22 @@
               </td>
             </tr>
           </table>
-          <%%= form.collection_select :country_id, Country.all, :id, :name, {}, { :index => nil } %>
+          <%%= form.label :country_name %><br />
+          <%%= form.text_field :country_name, :index => nil, :autocomplete => :off %>
+          <div id="<%%= dom_class(owner) -%>_address_attributes_country_name_auto_complete" class="auto_complete" style="display: none;"></div>
+          <script type="text/javascript">
+          //<![CDATA[
+          var address_country_name_auto_completer = new Ajax.Autocompleter('<%%= dom_class(owner) -%>_address_attributes__country_name',
+            '<%%= dom_class(owner) -%>_address_attributes_country_name_auto_complete',
+            '<%%= formatted_countries_url(:js) -%>',
+            {callback:function(element, value) { return 'search=' + element.value }, method:'get'})
+          //]]>
+          </script>
+          <br />
         </td>
         <td>
           <%%= form.collection_select :address_type_id,
             AddressType.all, :id, :description, {}, { :index => nil } %>
-          <%% if address.new_record? -%>
-            <%%= link_to_function t("actions.delete"),
-              "$(this).up('li').remove();", :class => :red %>
-          <%% else -%>
-            <%%= link_to_remote t("actions.delete"), :url => address,
-              :confirm => "actions.confirm.delete",
-              :method => :delete,
-              :html => { :class => :red } %>
-          <%% end -%>
         </td>
       </tr>
     </table>

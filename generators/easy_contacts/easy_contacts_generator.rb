@@ -63,8 +63,8 @@ class EasyContactsGenerator < Rails::Generator::Base
   protected
 
     def controllers
-      %w[ addresses companies contacts emails instant_messengers people phones
-          web_sites ]
+      %w[ addresses cities companies contacts countries emails
+          instant_messengers people phones provinces web_sites ]
     end
 
     def helpers
@@ -75,19 +75,24 @@ class EasyContactsGenerator < Rails::Generator::Base
       %w[ addresses/_address.html.erb
           addresses/_addresses.html.erb
           addresses/destroy.js.rjs
+          cities/index.js.erb
           companies/_company.html.erb
+          companies/index.html.erb
+          companies/index.js.erb
           companies/edit.html.erb
           companies/new.html.erb
           companies/show.html.erb
           contacts/_contact.html.erb
           contacts/_contact_info.html.erb
           contacts/index.html.erb
+          countries/index.js.erb
           emails/destroy.js.rjs
           emails/_email.html.erb
           emails/_emails.html.erb
           instant_messengers/destroy.js.rjs
           instant_messengers/_instant_messenger.html.erb
           instant_messengers/_instant_messengers.html.erb
+          people/index.html.erb
           people/edit.html.erb
           people/new.html.erb
           people/_person.html.erb
@@ -95,19 +100,20 @@ class EasyContactsGenerator < Rails::Generator::Base
           phones/destroy.js.rjs
           phones/_phone.html.erb
           phones/_phones.html.erb
+          provinces/index.js.erb
           web_sites/destroy.js.rjs
           web_sites/_web_site.html.erb
           web_sites/_web_sites.html.erb ]
     end
 
     def stylesheets
-      %w[ contacts ]
+      %w[ default companies people ]
     end
 
     def models
-      %w[ address address_type company contact country email email_type
+      %w[ address address_type city company contact country email email_type
           instant_messenger instant_messenger_protocol instant_messenger_type
-          person phone phone_type web_site web_site_type ]
+          person phone phone_type province web_site web_site_type ]
     end
 
     def banner
@@ -136,14 +142,17 @@ class EasyContactsGenerator < Rails::Generator::Base
       gsub_file 'config/routes.rb', /(#{Regexp.escape(sentinel)})/mi do |match|
         %{#{match}\n
   # Easy Contacts
-  map.resources :addresses
+  map.resources :addresses, :only => :destroy
+  map.resources :cities, :only => :index
   map.resources :companies
-  map.resources :contacts
-  map.resources :emails
-  map.resources :instant_messengers
+  map.resources :contacts, :only => :index
+  map.resources :countries, :only => :index
+  map.resources :emails, :only => :destroy
+  map.resources :instant_messengers, :only => :destroy
   map.resources :people
-  map.resources :phones
-  map.resources :web_sites
+  map.resources :phones, :only => :destroy
+  map.resources :provinces, :only => :index
+  map.resources :web_sites, :only => :destroy
   # Easy Contacts
         }
       end

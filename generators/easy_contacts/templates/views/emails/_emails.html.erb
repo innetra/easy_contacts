@@ -1,7 +1,6 @@
 <%% content_tag(:ul, :id => "emails") do -%>
   <%% for email in owner.emails -%>
-    <%%= render :partial => "/emails/email",
-      :object => email, :locals => { :owner => owner } %>
+    <%%= render :partial => email, :locals => { :owner => owner } %>
   <%% end -%>
 <%% end -%>
 <p>

@@ -10,6 +10,11 @@
       address: "Domicilio"
 
     attributes:
+      address:
+        address: "Domicilio"
+        city_name: "Ciudad"
+        province_name: "Estado"
+        country_name: "País"
       person:
         name: "Nombre"
         last_name: "Apellidos"
@@ -34,12 +39,15 @@
     optional_fields: "Datos Opcionales"
 
   addresses:
-    title: "Domicilios"
+    title: "Domicilio"
     add_link: "Agregar"
   companies:
     flash:
       create: "Compañía creada."
       update: "Compañía actualizada."
+    index:
+      title: "Compañías"
+      new_company_link: "Registrar nueva compañía"
     new:
       title: "Registrar Nueva Compañía"
       cancel: "Cancelar"
@@ -65,6 +73,9 @@
     flash:
       create: "Usuario creado."
       update: "Usuario actualizado."
+    index:
+      title: "Contactos"
+      new_person_link: "Registrar nuevo contacto"
     new:
       title: "Registrar Nuevo Contacto"
       cancel: "Cancelar"
@@ -77,3 +88,5 @@
     title: "Teléfonos"
     add_link: "Agregar"
   web_sites:
+    title: "Internet"
+    add_link: "Agregar"

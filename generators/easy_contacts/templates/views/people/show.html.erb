@@ -1,6 +1,12 @@
+<%% content_for :header do -%>
+  <%%= stylesheet_link_tag "easy_contacts/default", :media => :all %>
+  <%%= stylesheet_link_tag "easy_contacts/people", :media => :all %>
+<%% end -%>
+
 <%% content_for :sidebar do -%>
   <%%= render :partial => "contacts/contact_info", :object => @person %>
 <%% end -%>
+
 <h1>
   <%%= @person.full_name %><br />
   <span class="comment"><%%= @person.title_description %></span>

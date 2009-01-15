@@ -51,7 +51,7 @@
         <td class="label"><%%= address.address_type.description %></td>
         <td>
           <%%= address.address.gsub(/\n/,'<br />') %><br />
-          <%%= address.city %>, <%%= address.province %><br />
+          <%%= address.city.name %>, <%%= address.province.name %><br />
           <%%= address.country.name %>&nbsp;<%%= address.zip %>
         </td>
       </tr>

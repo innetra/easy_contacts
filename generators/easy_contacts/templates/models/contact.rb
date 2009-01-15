@@ -1,64 +1,95 @@
 class Contact < ActiveRecord::Base
 
-  has_many :phones
-  has_many :emails
-  has_many :instant_messengers
-  has_many :web_sites
-  has_many :addresses
+  belongs_to    :owner,              :polymorphic => true
 
-  after_update :save_attributes
+  has_many      :addresses,          :as => :owner
+  has_many      :emails,             :as => :owner
+  has_many      :instant_messengers, :as => :owner
+  has_many      :phones,             :as => :owner
+  has_many      :web_sites,          :as => :owner
+
+  after_update  :save_attributes
 
   def email_attributes=(email_attributes)
     email_attributes.each do |attributes|
-      if attributes[:id].blank?
+
+      if attributes[:id].blank? && !attributes[:address].blank?
         emails.build(attributes)
-      else
-        email = emails.detect { |t| t.id == attributes[:id].to_i }
-        email.attributes = attributes
       end
+
+      unless attributes[:id].blank?
+        email = emails.detect { |t| t.id == attributes[:id].to_i }
+        unless attributes[:address].blank?
+          email.attributes = attributes
+        else
+          email.delete
+        end
+      end
+
     end
   end
 
   def phone_attributes=(phone_attributes)
     phone_attributes.each do |attributes|
-      if attributes[:id].blank?
+      if attributes[:id].blank? && !attributes[:number].blank?
         phones.build(attributes)
-      else
+      end
+
+      unless attributes[:id].blank?
         phone = phones.detect { |t| t.id == attributes[:id].to_i }
-        phone.attributes = attributes
+        unless attributes[:number]
+          phone.attributes = attributes
+        else
+          phone.delete
+        end
       end
     end
   end
 
   def instant_messenger_attributes=(instant_messenger_attributes)
     instant_messenger_attributes.each do |attributes|
-      if attributes[:id].blank?
+      if attributes[:id].blank? && !attributes[:nick].blank?
         instant_messengers.build(attributes)
-      else
+      end
+      unless attributes[:id].blank?
         instant_messenger = instant_messengers.detect { |t| t.id == attributes[:id].to_i }
-        instant_messenger.attributes = attributes
+        unless attributes[:nick].blank?
+          instant_messenger.attributes = attributes
+        else
+          instant_messenger.delete
+        end
       end
     end
   end
 
   def web_site_attributes=(web_site_attributes)
     web_site_attributes.each do |attributes|
-      if attributes[:id].blank?
+      if attributes[:id].blank? && !attributes[:address].blank?
         web_sites.build(attributes)
-      else
+      end
+      unless attributes[:id].blank?
         web_site = web_sites.detect { |t| t.id == attributes[:id].to_i }
-        web_site.attributes = attributes
+        unless attributes[:address].blank?
+          web_site.attributes = attributes
+        else
+          web_site.delete
+        end
       end
     end
   end
 
   def address_attributes=(address_attributes)
     address_attributes.each do |attributes|
-      if attributes[:id].blank?
+      if attributes[:id].blank? && !attributes[:address].blank?
         addresses.build(attributes)
-      else
+      end
+      unless attributes[:id].blank?
         address = addresses.detect { |t| t.id == attributes[:id].to_i }
-        address.attributes = attributes
+        unless attributes[:address].blank?
+          address.attributes = attributes
+        else
+          address.delete
+        end
       end
     end
   end

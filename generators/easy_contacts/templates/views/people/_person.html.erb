@@ -21,8 +21,17 @@
   <%% fields_for "person[company_attributes]", @person.company do |form| -%>
     <p>
       <%%= form.label :name, t("activerecord.attributes.company.name") %><br />
-      <%%= form.text_field :name, :size => "40" %>
+      <%%= form.text_field :name, :size => "40", :autocomplete => :off %>
     </p>
+    <div id="person_company_attributes_name_auto_complete" class="auto_complete" style="display: none;"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+    var person_company_attributes_name_auto_completer = new Ajax.Autocompleter('person_company_attributes_name',
+      'person_company_attributes_name_auto_complete',
+      '<%%= formatted_companies_url(:js) -%>',
+      {callback:function(element, value) { return 'search=' + element.value }, method:'get'})
+    //]]>
+    </script>
   <%% end -%>
 
   <%%= render :partial => "contacts/contact", :object => @person %>

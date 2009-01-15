@@ -11,12 +11,15 @@ en:
     optional_fields: "Optional Fields"
 
   addresses:
-    title: "Addresses"
+    title: "Address"
     add_link: "add address"
   companies:
     flash:
       create: "Company created."
       update: "Company updated."
+    index:
+      title: "Companies"
+      new_company_link: "Add new company"
     new:
       title: "New Company"
     edit:
@@ -52,3 +55,5 @@ en:
     title: "Phones"
     add_link: "add"
   web_sites:
+    title: "Internet"
+    add_link: "add"
