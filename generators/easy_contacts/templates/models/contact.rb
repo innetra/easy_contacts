@@ -37,7 +37,7 @@ class Contact < ActiveRecord::Base
 
       unless attributes[:id].blank?
         phone = phones.detect { |t| t.id == attributes[:id].to_i }
-        unless attributes[:number]
+        unless attributes[:number].blank?
           phone.attributes = attributes
         else
           phone.delete
