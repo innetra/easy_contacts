@@ -4,7 +4,7 @@ require 'echoe'
 
 Echoe.new('easy_contacts', '0.0.1') do |e|
   e.description    = "Easy Contacts for Ruby on Rails 2.2 (i18n)"
-  e.url            = "http://github.com/innetra/easy_authentication"
+  e.url            = "http://github.com/innetra/easy_contacts"
   e.author         = "Ivan Torres"
   e.email          = "mexpolk@gmail.com"
   e.ignore_pattern = ["tmp/*", "script/*"]
