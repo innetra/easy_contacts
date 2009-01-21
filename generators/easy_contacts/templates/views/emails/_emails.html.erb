@@ -1,6 +1,6 @@
 <%% content_tag(:ul, :id => "emails") do -%>
   <%% for email in owner.emails -%>
-    <%%= render :partial => email, :locals => { :owner => owner } %>
+    <%%= render :partial => email, :locals => { :owner => owner, :options => options } %>
   <%% end -%>
 <%% end -%>
 <p>
@@ -8,6 +8,6 @@
     page.insert_html :bottom, :emails,
       :partial => "/emails/email",
       :object => Email.new,
-      :locals => { :owner => owner }
+      :locals => { :owner => owner, :options => options }
   end %>
 </p>
