@@ -1,5 +1,5 @@
 <%% content_tag_for(:li, web_site) do -%>
-  <%% fields_for "#{dom_class(owner)}[web_site_attributes][]", web_site do |form| -%>
+  <%% fields_for options[:fields_prefix], web_site do |form| -%>
     <%% unless web_site.new_record? -%>
       <%%= form.hidden_field :id, :index => nil %>
     <%% end -%>

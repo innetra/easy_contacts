@@ -1,5 +1,5 @@
 <%% content_tag_for(:li, address) do -%>
-  <%% fields_for "#{dom_class(owner)}[address_attributes][]", address do |form| -%>
+  <%% fields_for options[:fields_prefix], address do |form| -%>
     <%% unless address.new_record? -%>
       <%%= form.hidden_field :id, :index => nil %>
     <%% end -%>

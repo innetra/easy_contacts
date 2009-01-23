@@ -1,14 +1,14 @@
 <%% content_tag(:ul, :id => "web_sites") do -%>
   <%% for web_site in owner.web_sites -%>
     <%%= render :partial => "/web_sites/web_site",
-      :object => web_site, :locals => { :owner => owner } %>
+      :object => web_site, :locals => { :owner => owner, :options => options } %>
   <%% end -%>
 <%% end -%>
 <p>
   <%%= link_to_function t("web_sites.add_link") do |page|
-    page.insert_html :bottom, :web_sites, 
+    page.insert_html :bottom, :web_sites,
       :partial => "/web_sites/web_site",
       :object => WebSite.new,
-      :locals => { :owner => owner }
+      :locals => { :owner => owner, :options => options }
   end %>
 </p>

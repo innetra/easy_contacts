@@ -1,7 +1,7 @@
 <%% content_tag(:ul, :id => "instant_messengers") do -%>
   <%% for instant_messenger in owner.instant_messengers -%>
     <%%= render :partial => "/instant_messengers/instant_messenger",
-      :object => instant_messenger, :locals => { :owner => owner } %>
+      :object => instant_messenger, :locals => { :owner => owner, :options => options } %>
   <%% end -%>
 <%% end -%>
 <p>
@@ -9,6 +9,6 @@
     page.insert_html :bottom, :instant_messengers,
       :partial => "/instant_messengers/instant_messenger",
       :object => InstantMessenger.new,
-      :locals => { :owner => owner }
+      :locals => { :owner => owner, :options => options }
   end %>
 </p>

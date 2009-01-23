@@ -1,5 +1,5 @@
 <%% content_tag_for(:li, phone) do -%>
-  <%% fields_for "#{dom_class(owner)}[phone_attributes][]", phone do |form| -%>
+  <%% fields_for options[:fields_prefix], phone do |form| -%>
     <%% unless phone.new_record? -%>
       <%%= form.hidden_field :id, :index => nil %>
     <%% end -%>

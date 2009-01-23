@@ -1,6 +1,5 @@
 <%% content_tag_for(:li, instant_messenger) do -%>
-  <%% fields_for "#{dom_class(owner)}[instant_messenger_attributes][]",
-    instant_messenger do |form| -%>
+  <%% fields_for options[:fields_prefix], instant_messenger do |form| -%>
     <%% unless instant_messenger.new_record? -%>
       <%%= form.hidden_field :id, :index => nil %>
     <%% end -%>

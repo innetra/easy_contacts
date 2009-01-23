@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('easy_contacts', '0.2.1') do |e|
+Echoe.new('easy_contacts', '0.2.3') do |e|
   e.description    = "Easy Contacts for Ruby on Rails 2.2 (i18n)"
   e.url            = "http://github.com/innetra/easy_contacts"
   e.author         = "Ivan Torres"

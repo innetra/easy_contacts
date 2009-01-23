@@ -48,8 +48,8 @@ class EasyContactsGenerator < Rails::Generator::Base
 
       # Rake tasks
       m.directory('lib/tasks')
-      m.template "tasks/init.rake",
-        "lib/tasks/init.rake"
+      m.template "tasks/easy_contacts.rake",
+        "lib/tasks/easy_contacts.rake"
 
       # Necessary Routes
       unless options[:skip_routes]
