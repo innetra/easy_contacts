@@ -1,12 +1,7 @@
 class PeopleController < ApplicationController
 
   def index
-    @people = Person.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @people }
-    end
+    @people = Person.all(:conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"] )
   end
 
   def new
@@ -53,22 +48,18 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find_by_id(params[:id])
-
     # Build Person contact fields if blank
     if @person.phones.blank?
       @person.phones.build
       @person.phones.build(:phone_type_id => 2)
     end
-
     if @person.emails.blank?
       @person.emails.build
       @person.emails.build(:email_type_id => 2)
     end
-
     @person.instant_messengers.build if @person.instant_messengers.blank?
     @person.web_sites.build if @person.web_sites.blank?
     @person.addresses.build if @person.addresses.blank?
-
   end
 
   def update

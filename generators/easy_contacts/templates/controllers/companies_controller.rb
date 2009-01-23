@@ -1,23 +1,16 @@
 class CompaniesController < ApplicationController
 
   def index
-    if params.has_key?(:search)
-      @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"] )
-    else
-      @companies = Company.all
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js
-      format.xml  { render :xml => @companies }
-    end
+    @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"] )
   end
 
   def new
     @company = Company.new
-    2.times { @company.phones.build }
+    # Build Person contact fields
+    @company.phones.build
+    @company.phones.build(:phone_type_id => 2)
     @company.emails.build
+    @company.emails.build(:email_type_id => 2)
     @company.instant_messengers.build
     @company.web_sites.build
     @company.addresses.build
@@ -54,6 +47,18 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find_by_id(params[:id])
+    # Build Company contact fields if blank
+    if @company.phones.blank?
+      @company.phones.build
+      @company.phones.build(:phone_type_id => 2)
+    end
+    if @company.emails.blank?
+      @company.emails.build
+      @company.emails.build(:email_type_id => 2)
+    end
+    @company.instant_messengers.build if @company.instant_messengers.blank?
+    @company.web_sites.build if @company.web_sites.blank?
+    @company.addresses.build if @company.addresses.blank?
   end
 
   def update

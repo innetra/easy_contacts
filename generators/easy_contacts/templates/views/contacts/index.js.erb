@@ -1,0 +1,9 @@
+<ul>
+  <%% for contact in @contacts -%>
+    <%% if contact.is_a?Person %>
+      <li><%%= contact.full_name %></li>
+    <%% else -%>
+      <li><%%= contact.name %></li>
+    <%% end -%>
+  <%% end -%>
+</ul>

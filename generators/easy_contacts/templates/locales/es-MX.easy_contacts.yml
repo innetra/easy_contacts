@@ -1,6 +1,5 @@
 "es-MX":
   activerecord:
-
     models:
       contact: "Contacto"
       person: "Contacto"
@@ -8,7 +7,6 @@
       phone: "Teléfono"
       email: "Correo Electrónico"
       address: "Domicilio"
-
     attributes:
       address:
         address: "Domicilio"
@@ -33,10 +31,11 @@
     delete: "Eliminar"
 
   forms:
-    save: "Guardar"
     cancel: "Cancelar"
-    update: "Actualizar"
     optional_fields: "Datos Opcionales"
+    or: "ó"
+    update: "Actualizar"
+    save: "Guardar"
 
   addresses:
     title: "Domicilio"
@@ -45,24 +44,24 @@
     flash:
       create: "Compañía creada."
       update: "Compañía actualizada."
-    index:
-      title: "Compañías"
-      new_company_link: "Registrar nueva compañía"
     new:
       title: "Registrar Nueva Compañía"
       cancel: "Cancelar"
     edit:
       title: "Editar compañía \"{{name}}\""
     show:
+      back_link: "Contactos"
+      new_person_link: "Agregar nuevo contacto"
       people_in_this_company: "Contactos"
   contacts:
     info:
       title: "Contacto {{name}}"
     index:
-      title: "Contactos"
+      add_link: "Agregar"
       new_person_link: "Registrar nuevo contacto"
       new_company_link: "Registrar nueva companía"
-      add_link: "Agregar"
+      people_count: "{{people_count}} personas"
+      title: "Contactos"
   emails:
     title: "Correo Electrónico"
     add_link: "Agregar"
@@ -73,9 +72,6 @@
     flash:
       create: "Usuario creado."
       update: "Usuario actualizado."
-    index:
-      title: "Contactos"
-      new_person_link: "Registrar nuevo contacto"
     new:
       title: "Registrar Nuevo Contacto"
       cancel: "Cancelar"
@@ -83,7 +79,7 @@
       title: "Editar contacto \"{{full_name}}\""
     show:
       title_description: "{{title}} en {{company}}"
-      contact_data: "Datos {{name}}"
+      back_link: "Contactos"
   phones:
     title: "Teléfonos"
     add_link: "Agregar"

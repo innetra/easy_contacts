@@ -1,10 +1,16 @@
 class ContactsController < ApplicationController
   def index
-    @people = Person.all(:order => "name, last_name")
+    if params.has_key?(:search)
+      @contacts = Contact.all(:conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"],
+        :order => "name, last_name")
+    else
+      @contacts = Contact.all(:order => "name, last_name")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @people }
+      format.js
+      format.xml  { render :xml => @contacts }
     end
   end
 end

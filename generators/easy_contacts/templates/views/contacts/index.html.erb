@@ -1,4 +1,5 @@
 <%% content_for :header do -%>
+  <%%= stylesheet_link_tag "easy_contacts/default", :media => :all %>
   <%%= stylesheet_link_tag "easy_contacts/contacts", :media => :all %>
 <%% end -%>
 
@@ -10,12 +11,16 @@
 <%% end -%>
 <h1><%%= t("contacts.index.title") %></h1>
 
-<ul>
-  <%% for person in @people -%>
-    <%% content_tag_for(:li, person) do %>
-      <%%= link_to person.full_name, person,
-        :class => "full_name important" %><br />
-      <%%= person.title_description %>
+<ul id="contact_list">
+  <%% for contact in @contacts -%>
+    <%% content_tag_for(:li, contact) do %>
+      <%% if contact.is_a?Person -%>
+        <%%= link_to contact.full_name, contact, :class => "important" %><br />
+        <%%= contact.title_description %>
+      <%% else -%>
+        <%%= link_to contact.name, contact, :class => "important" %><br />
+        <%%= t("contacts.index.people_count", :people_count => contact.people.count) %>
+      <%% end -%>
     <%% end %>
   <%% end -%>
 </ul>

@@ -5,9 +5,17 @@
 
 <h1>
   <div class="title_actions">
-    <%%= link_to t("companies.new.cancel"), companies_url %>
+    <%%= link_to t("companies.new.cancel"), contacts_url %>
   </div>
   <%%= t "companies.new.title" %>
 </h1>
-
-<%%= render :partial => "/companies/company", :object => @person %>
+<%% form_for @company do |form| %>
+  <%%= render :partial => form %>
+  <hr />
+  <%%= render :partial => "contacts/contact", :object => @company %>
+  <hr />
+  <p>
+    <%%= submit_tag t("forms.save") %>&nbsp;<%%= t("forms.or") %>
+    <%%= link_to t("forms.cancel"), companies_url, :class => :red %>
+  </p>
+<%% end %>

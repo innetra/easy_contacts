@@ -46,6 +46,11 @@ class EasyContactsGenerator < Rails::Generator::Base
       m.template "locales/es-MX.easy_contacts.yml",
         "config/locales/es-MX.easy_contacts.yml"
 
+      # Rake tasks
+      m.directory('lib/tasks')
+      m.template "tasks/init.rake",
+        "lib/tasks/init.rake"
+
       # Necessary Routes
       unless options[:skip_routes]
         generate_routes
@@ -76,8 +81,7 @@ class EasyContactsGenerator < Rails::Generator::Base
           addresses/_addresses.html.erb
           addresses/destroy.js.rjs
           cities/index.js.erb
-          companies/_company.html.erb
-          companies/index.html.erb
+          companies/_form.html.erb
           companies/index.js.erb
           companies/edit.html.erb
           companies/new.html.erb
@@ -85,6 +89,7 @@ class EasyContactsGenerator < Rails::Generator::Base
           contacts/_contact.html.erb
           contacts/_contact_info.html.erb
           contacts/index.html.erb
+          contacts/index.js.erb
           countries/index.js.erb
           emails/destroy.js.rjs
           emails/_email.html.erb
@@ -92,10 +97,10 @@ class EasyContactsGenerator < Rails::Generator::Base
           instant_messengers/destroy.js.rjs
           instant_messengers/_instant_messenger.html.erb
           instant_messengers/_instant_messengers.html.erb
-          people/index.html.erb
+          people/_form.html.erb
           people/edit.html.erb
+          people/index.js.erb
           people/new.html.erb
-          people/_person.html.erb
           people/show.html.erb
           phones/destroy.js.rjs
           phones/_phone.html.erb
@@ -107,7 +112,7 @@ class EasyContactsGenerator < Rails::Generator::Base
     end
 
     def stylesheets
-      %w[ default companies people ]
+      %w[ default contacts ]
     end
 
     def models
@@ -144,7 +149,7 @@ class EasyContactsGenerator < Rails::Generator::Base
   # Easy Contacts
   map.resources :addresses, :only => :destroy
   map.resources :cities, :only => :index
-  map.resources :companies
+  map.resources :companies, :has_many => :people
   map.resources :contacts, :only => :index
   map.resources :countries, :only => :index
   map.resources :emails, :only => :destroy
