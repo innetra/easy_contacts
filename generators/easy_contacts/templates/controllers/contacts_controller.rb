@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   def index
     if params.has_key?(:search)
       @contacts = Contact.all(:conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"],
-        :order => "name, last_name")
+        :limit => 10, :order => "name, last_name")
     else
       @contacts = Contact.all(:order => "name, last_name")
     end

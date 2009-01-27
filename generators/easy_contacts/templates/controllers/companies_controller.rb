@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"] )
+    @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"], :limit => 10, :order => "name")
   end
 
   def new
