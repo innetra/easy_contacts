@@ -1,0 +1,5 @@
+<% content_tag(:ul, :id => "addresses") do -%>
+  <% for address in owner.addresses -%>
+    <%= render :partial => address, :locals => { :owner => owner, :options => options } %>
+  <% end -%>
+<% end -%>
