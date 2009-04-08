@@ -69,6 +69,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     end
 
     create_table  :cities do |t|
+      t.integer   :province_id
       t.string    :name
     end
 
@@ -93,6 +94,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     end
 
     create_table  :provinces do |t|
+      t.integer   :country_id
       t.string    :name
     end
 

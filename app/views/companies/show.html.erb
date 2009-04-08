@@ -1,0 +1,26 @@
+<% content_for :sidebar do -%>
+  <%= render :partial => "contacts/contact_info", :object => @company %>
+
+  <% shadowbox "people_in_this_company", :class => "sidebar_section" do %>
+    <% unless @company.people.blank? -%>
+      <h1><%= t("companies.show.people_in_this_company") %></h1>
+      <ul>
+        <% for person in @company.people -%>
+          <% content_tag_for(:li, person) do -%>
+            <%= link_to person.full_name, person %><br />
+            <span class="comment"><%= person.title %></span>
+          <% end -%>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <%= link_to t("companies.show.new_person_link"), new_company_person_url(@company) %>
+    <% end -%>
+  <% end %>
+
+<% end -%>
+<h1>
+  <div class="title_actions">
+    <%= link_to t("companies.show.back_link"), contacts_url %>
+  </div>
+  <%= @company.name %>
+</h1>

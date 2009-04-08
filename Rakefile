@@ -1,14 +1,23 @@
-require 'rubygems'
 require 'rake'
-require 'echoe'
+require 'rake/testtask'
+require 'rake/rdoctask'
 
-Echoe.new('easy_contacts', '0.3.0') do |e|
-  e.description    = "Easy Contacts for Ruby on Rails 2.2 (i18n)"
-  e.url            = "http://github.com/innetra/easy_contacts"
-  e.author         = "Ivan Torres"
-  e.email          = "mexpolk@gmail.com"
-  e.ignore_pattern = ["tmp/*", "script/*"]
-  e.development_dependencies = []
+desc 'Default: run unit tests.'
+task :default => :test
+
+desc 'Test the easy_contacts plugin.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
 end
 
-#Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].each { |f| load f }
+desc 'Generate documentation for the easy_contacts plugin.'
+Rake::RDocTask.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'Easy Contacts'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
