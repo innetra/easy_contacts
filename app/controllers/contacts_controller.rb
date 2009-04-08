@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      format.js { render :template => nil }
       format.xml  { render :xml => @contacts }
     end
   end
