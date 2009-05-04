@@ -1,1 +1,1 @@
-page["address_#{@address.id}"].remove
+page[@address].remove

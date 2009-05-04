@@ -55,10 +55,10 @@ class CreateEasyContacts < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table  :web_sites do |t|
+    create_table  :websites do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :web_site_type_id
+      t.integer   :website_type_id
       t.string    :address
 
       t.timestamps
@@ -98,7 +98,7 @@ class CreateEasyContacts < ActiveRecord::Migration
       t.string    :name
     end
 
-    create_table  :web_site_types do |t|
+    create_table  :website_types do |t|
       t.string    :description
     end
 
@@ -110,7 +110,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     drop_table :emails
     drop_table :instant_messengers
     drop_table :phones
-    drop_table :web_sites
+    drop_table :websites
     drop_table :address_types
     drop_table :cities
     drop_table :countries
@@ -119,7 +119,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     drop_table :instant_messenger_types
     drop_table :phone_types
     drop_table :provinces
-    drop_table :web_site_types
+    drop_table :website_types
   end
 
 end

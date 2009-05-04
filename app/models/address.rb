@@ -11,7 +11,7 @@ class Address < ActiveRecord::Base
   end
 
   def city_name=(name)
-    self.city = City.find_or_create_by_name(name) unless name.blank?
+    self.city = City.find_or_create_by_name(name.to_s.titleize) unless name.blank?
   end
 
   def province_name
@@ -19,7 +19,7 @@ class Address < ActiveRecord::Base
   end
 
   def province_name=(name)
-    self.province = Province.find_or_create_by_name(name) unless name.blank?
+    self.province = Province.find_or_create_by_name(name.to_s.titleize) unless name.blank?
   end
 
   def country_name
@@ -27,7 +27,7 @@ class Address < ActiveRecord::Base
   end
 
   def country_name=(name)
-    self.country = Country.find_or_create_by_name(name) unless name.blank?
+    self.country = Country.find_or_create_by_name(name.to_s.titleize) unless name.blank?
   end
 
 end

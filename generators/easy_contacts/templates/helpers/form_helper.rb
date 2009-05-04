@@ -1,5 +1,5 @@
 module FormHelper
   def required_field
-    "<span class=\"required\">*</span>"
-  end  
+    content_tag :span, '*', :class => :required
+  end
 end

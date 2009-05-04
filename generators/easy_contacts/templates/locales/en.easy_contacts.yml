@@ -1,59 +1,76 @@
 en:
-
-  actions:
-    edit: "Edit"
-    delete: "Delete"
-
-  forms:
-    save: "Save"
-    cancel: "Cancel"
-    update: "Update"
-    optional_fields: "Optional Fields"
-
+  activerecord:
+    attributes:
+      phone:
+        number: "Phone"
+      email:
+        address: "Email"
+      website:
+        address: "Website"
   addresses:
-    title: "Address"
-    add_link: "add address"
+    helper:
+      delete_address: "delete"
+      delete_address_confirmation: "Are you shure?"
+      new_address: "add new address"
   companies:
-    flash:
-      create: "Company created."
-      update: "Company updated."
-    index:
-      title: "Companies"
-      new_company_link: "Add new company"
+    edit:
+      cancel: "cacel"
+      title: "Edit details for {{name}}"
     new:
+      cancel: "cancel"
       title: "New Company"
-    edit:
-      title: "Edit Company \"{{name}}\""
     show:
-      people_in_this_company: "Contacts"
+      back_to_contacts: "back to contacts"
+      new_person: "add new person"
+      people_at_company: "People at {{name}}"
   contacts:
-    info:
-      title: "Contact {{name}}"
+    contact:
+      edit_contact: "edit"
+    form:
+      addresses:
+        title: "Address"
+      emails:
+        title: "Email"
+      instant_messengers:
+        title: "Instant Messages"
+      phones:
+        title: "Phone Numbers"
+      websites:
+        title: "Internet"
     index:
+      new_company: "add new company"
+      new_person: "add new contact"
+      people_count: "{{people_count}} contacts"
       title: "Contacts"
-      new_person_link: "add new contact"
-      new_company_link: "add new company"
-      add_link: "add"
-  emails:
-    title: "Email"
-    add_link: "add"
-  instant_messengers:
-    title: "Instant Messenger"
-    add_link: "add"
-  people:
-    flash:
-      create: "User created."
-      update: "User updated."
-    new:
-      title: "Add New Contact"
-    edit:
-      title: "Edit Contact  \"{{full_name}}\""
     show:
+      edit_contact: "edit"
+      title: "{{name}}"
+  emails:
+    helper:
+      delete_email: "delete"
+      delte_email_confirmation: "Are you shure?"
+      new_email: "add new email"
+  instant_messengers:
+    helper:
+      delete_instant_messenger: "delete"
+      delete_instant_messenger_confirmation: "Are you shure?"
+      new_instant_messenger: "add new nick"
+  people:
+    edit:
+      title: "Edit details for {{full_name}}"
+    new:
+      cancel: "cancel"
+      title: "New Contact"
+    show:
+      back_to_contacts: "back to contacts"
       title_description: "{{title}} at {{company}}"
-      contact_data: "Contact Data {{name}}"
   phones:
-    title: "Phones"
-    add_link: "add"
-  web_sites:
-    title: "Internet"
-    add_link: "add"
+    helper:
+      delete_phone: "delete"
+      delete_phone_confirmation: "Are you shure?"
+      new_phone: "add new phone number"
+  websites:
+    helper:
+      delete_website: "delete"
+      delte_website_confirmation: "Are you shure?"
+      new_website: "add new email"

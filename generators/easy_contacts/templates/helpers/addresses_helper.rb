@@ -1,14 +1,45 @@
 module AddressesHelper
-  def place_address_form(record_or_name, *args)
-    options = {}
-    case record_or_name
-      when String, Symbol
-        options[:fields_prefix] = "#{record_or_name}[address_attributes][]"
-        owner = args.first
-      else
-        owner = record_or_name
-        options[:fields_prefix] = "#{dom_class(owner)}[address_attributes][]"
+  
+  # Insert existing nested address numbers
+  def insert_addresses(form)
+    # Existing owner's addresses
+    content_tag :ul, :id => 'addresses' do
+      form.fields_for :addresses do |nested_attributes|
+         render :partial => 'addresses/form', :object => nested_attributes
+      end
     end
-    render :partial => "addresses/addresses", :locals => { :owner => owner, :options => options }
   end
+  
+  # Insert new nested address number
+  def insert_new_address_link(form)
+    # New address link
+    content_tag :p do
+      form.fields_for :addresses, form.object.addresses.new do |nested_attributes|
+        link_to_function t('addresses.helper.new_address') do |page|
+           page.insert_html :bottom, :addresses, :partial => 'addresses/form', :object => nested_attributes
+        end
+      end
+    end
+  end
+  
+  # Insert address type select tag (collection_select)
+  def insert_address_type_options(form)
+    form.collection_select :address_type_id, AddressType.all, 
+      :id, :description, {}
+  end
+  
+  # Insert delete address link
+  def insert_delete_address_link(form)
+    # If it's a new record it will remove only the html, 
+    # otherwise it will request record deletion using Ajax
+    if form.object.new_record?
+      link_to_function t('addresses.helper.delete_address'), 
+        "$(this).up('li').remove();", :class => :red
+    else
+      link_to_remote t('addresses.helper.delete_address'), :url => form.object, 
+        :confirm => t('addresses.helper.delete_address_confirmation'),
+        :method => :delete, :html => { :class => :red }
+    end
+  end
+  
 end

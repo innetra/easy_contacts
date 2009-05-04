@@ -28,9 +28,9 @@ namespace :easy_contacts do
     InstantMessengerType.create!(:description => "Personal")
     InstantMessengerType.create!(:description => "Otro")
 
-    WebSiteType.create!(:description => "Trabajo")
-    WebSiteType.create!(:description => "Personal")
-    WebSiteType.create!(:description => "Otro")
+    WebsiteType.create!(:description => "Trabajo")
+    WebsiteType.create!(:description => "Personal")
+    WebsiteType.create!(:description => "Otro")
 
     AddressType.create!(:description => "Trabajo")
     AddressType.create!(:description => "Personal")

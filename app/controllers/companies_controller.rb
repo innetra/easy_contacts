@@ -5,25 +5,11 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = Company.new
-    # Build Person contact fields
-    @company.phones.build
-    @company.phones.build(:phone_type_id => 2)
-    @company.emails.build
-    @company.emails.build(:email_type_id => 2)
-    @company.instant_messengers.build
-    @company.web_sites.build
-    @company.addresses.build
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @company }
-    end
+    @company = build_company_basic_items(Company.new)
   end
 
   def create
     @company = Company.new(params[:company])
-
     respond_to do |format|
       if @company.save
         flash[:notice] = t("companies.flash.create")
@@ -38,27 +24,10 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by_id(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @company }
-    end
   end
 
   def edit
-    @company = Company.find_by_id(params[:id])
-    # Build Company contact fields if blank
-    if @company.phones.blank?
-      @company.phones.build
-      @company.phones.build(:phone_type_id => 2)
-    end
-    if @company.emails.blank?
-      @company.emails.build
-      @company.emails.build(:email_type_id => 2)
-    end
-    @company.instant_messengers.build if @company.instant_messengers.blank?
-    @company.web_sites.build if @company.web_sites.blank?
-    @company.addresses.build if @company.addresses.blank?
+    @company = build_company_basic_items(Company.find_by_id(params[:id]))
   end
 
   def update
@@ -76,5 +45,21 @@ class CompaniesController < ApplicationController
     end
   end
 
+  protected
+  
+    def build_company_basic_items(company)
+      if company.phones.blank?
+        company.phones.build #work
+        company.phones.build :phone_type_id => 4 # fax
+      end
+      if company.emails.blank?
+        company.emails.build
+        company.emails.build      
+      end
+      company.instant_messengers.build if company.instant_messengers.blank?
+      company.websites.build if company.websites.blank?
+      company.addresses.build if company.addresses.blank?
+      company
+    end
 
 end

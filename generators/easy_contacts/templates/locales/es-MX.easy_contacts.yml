@@ -1,88 +1,18 @@
 "es-MX":
-  activerecord:
-    models:
-      contact: "Contacto"
-      person: "Contacto"
-      company: "Compañía"
-      phone: "Teléfono"
-      email: "Correo Electrónico"
-      address: "Domicilio"
-    attributes:
-      address:
-        address: "Domicilio"
-        city_name: "Ciudad"
-        province_name: "Estado"
-        country_name: "País"
-      person:
-        name: "Nombre"
-        last_name: "Apellidos"
-        full_name: "Nombre Completo"
-      company:
-        name: "Compañía"
-      phone:
-        number: "Teléfono"
-      email:
-        address: "Email"
-      web_site:
-        address: "Web"
-
-  actions:
-    edit: "Editar"
-    delete: "Eliminar"
-
-  forms:
-    cancel: "Cancelar"
-    optional_fields: "Datos Opcionales"
-    or: "ó"
-    update: "Actualizar"
-    save: "Guardar"
-
-  addresses:
-    title: "Domicilio"
-    add_link: "Agregar"
   companies:
-    flash:
-      create: "Compañía creada."
-      update: "Compañía actualizada."
-    new:
-      title: "Registrar Nueva Compañía"
-      cancel: "Cancelar"
-    edit:
-      title: "Editar compañía \"{{name}}\""
     show:
-      back_link: "Contactos"
-      new_person_link: "Agregar nuevo contacto"
-      people_in_this_company: "Contactos"
+      back_link: "Back to Contacts"
+      people_in_this_company: "People at {{name}}"
   contacts:
-    info:
-      title: "Contacto {{name}}"
     index:
-      add_link: "Agregar"
-      new_person_link: "Registrar nuevo contacto"
-      new_company_link: "Registrar nueva companía"
-      people_count: "{{people_count}} personas"
-      title: "Contactos"
-  emails:
-    title: "Correo Electrónico"
-    add_link: "Agregar"
-  instant_messengers:
-    title: "Mensajero Instantaneo"
-    add_link: "Agregar"
-  people:
-    flash:
-      create: "Usuario creado."
-      update: "Usuario actualizado."
-    new:
-      title: "Registrar Nuevo Contacto"
-      cancel: "Cancelar"
-    edit:
-      title: "Editar contacto \"{{full_name}}\""
+      new_company_link: "Add new company"
+      new_person_link: "Add new contact"
+      people_count: "{{people_count}} contacts"
+      title: "Contacts"
     show:
-      title_description: "{{title}} en {{company}}"
-      back_link: "Contactos"
-  phones:
-    title: "Teléfonos"
-    add_link: "Agregar"
-  web_sites:
-    title: "Internet"
-    add_link: "Agregar"
+      edit_link: "Edit"
+      title: "{{name}}"
+  people:
+    show:
+      back_link: "Back to Contacts"
+      title_description: "{{title}} at {{company}}"

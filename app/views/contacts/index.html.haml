@@ -1,0 +1,20 @@
+- content_for :header do
+  = stylesheet_link_tag 'easy_contacts/default', :media => :all 
+  = stylesheet_link_tag 'easy_contacts/contacts', :media => :all 
+- content_for :sidebar do
+  - shadowbox 'options_section', :class => 'sidebar_section' do 
+    = link_to t('contacts.index.new_person'), new_person_url
+    %br
+    = link_to t('contacts.index.new_company'), new_company_url 
+%h1= t 'contacts.index.title'
+%ul#contact_list
+  - for contact in @contacts
+    - content_tag_for :li, contact do 
+      - if contact.is_a? Person
+        = link_to contact.full_name, contact, :class => :important
+        %br
+        = contact.title_description 
+      - else
+        = link_to contact.name, contact, :class => :important
+        %br
+        = t 'contacts.index.people_count', :people_count => contact.people.count

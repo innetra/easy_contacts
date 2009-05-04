@@ -1,4 +1,5 @@
 class Province < ActiveRecord::Base
-  belongs_to :country
-  has_many :citites
+  
+  validates_presence_of :name
+  
 end

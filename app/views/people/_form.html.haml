@@ -1,0 +1,20 @@
+= error_messages_for :person 
+%table
+  %tr
+    %td
+      = form.label :name 
+      = required_field 
+      %br
+      = form.text_field :name
+    %td
+      = form.label :last_name 
+      = required_field 
+      %br
+      = form.text_field :last_name 
+%p
+  = form.label :title 
+  %br
+  = form.text_field :title, :size => "40" 
+= insert_company_name_text_field_with_autocomplete form
+%hr
+= render :partial => 'contacts/form', :object => form

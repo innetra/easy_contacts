@@ -1,0 +1,8 @@
+= error_messages_for :company
+%p
+  = form.label :name
+  = required_field
+  %br
+  = form.text_field :name, :size => 60
+%h1
+= render :partial => 'contacts/form', :object => form

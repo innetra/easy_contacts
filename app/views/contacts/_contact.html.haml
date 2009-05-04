@@ -1,0 +1,42 @@
+- shadowbox 'contact_details', :class => 'sidebar_section'  do
+  %h1
+    .title_actions= link_to t('contacts.contact.edit_contact'), edit_polymorphic_url(contact)
+    = t 'contacts.show.title', :name => contact.name
+  - unless contact.phones.blank?
+    %table
+      %tr
+        %td.label= t 'activerecord.attributes.phone.number'
+        %td
+          - for phone in contact.phones
+            = phone.number
+            %span.comment= phone.phone_type.description
+            %br
+  - unless contact.emails.blank?
+    %table
+      %tr
+        %td.label= t 'activerecord.attributes.email.address'
+        %td
+          - for email in contact.emails
+            = auto_link email.address
+            %span.comment= email.email_type.description
+            %br
+  - unless contact.websites.blank?
+    %table
+      %tr
+        %td.label= t 'activerecord.attributes.website.address'
+        %td
+          - for website in contact.websites
+            = auto_link website.address
+            %span.comment= website.website_type.description
+            %br
+  - unless contact.addresses.blank?
+    %table
+      - for address in contact.addresses
+        %tr
+          %td.label= address.address_type.description
+          %td
+            = address.address.gsub /\n/, '<br />'
+            %br
+            = "#{address.city.name}, #{address.province.name}"
+            %br
+            = "#{address.country.name}&nbsp;#{address.zip}"

@@ -1,6 +1,6 @@
 class EasyContactsGenerator < Rails::Generator::Base
 
-  default_options :skip_migration => false, :skip_routes => false
+  default_options :skip_migrations => false, :skip_routes => false
 
   def manifest
     record do |m|
@@ -13,10 +13,10 @@ class EasyContactsGenerator < Rails::Generator::Base
 
       # Stylesheets
       unless options[:skip_css]
-        m.directory("public/stylesheets/easy_contacts")
+        m.directory("public/stylesheets/sass")
         stylesheets.each do |stylesheet_name|
-          m.template "stylesheets/#{stylesheet_name}.css",
-            File.join("public/stylesheets/easy_contacts", "#{stylesheet_name}.css")
+          m.template "stylesheets/sass/#{stylesheet_name}.sass",
+            File.join("public/stylesheets/sass", "#{stylesheet_name}.sass")
         end
       end
 
@@ -32,7 +32,7 @@ class EasyContactsGenerator < Rails::Generator::Base
       end
 
       # Migrations
-      unless options[:skip_migration]
+      unless options[:skip_migrations]
         m.migration_template "migrations/easy_contacts.rb", "db/migrate",
           :migration_file_name => "create_easy_contacts"
       end
@@ -43,22 +43,22 @@ class EasyContactsGenerator < Rails::Generator::Base
   protected
 
     def banner
-      "Usage: #{$0} easy_contacts"
+      "Usage: #{$0} easy_contacts [--skip-migration] [--skip-routes]"
     end
 
     def helpers
-      %w[ addresses emails instant_messengers phones web_sites form shadowbox ]
+      %w[ addresses emails form instant_messengers people phones shadowbox websites ]
     end
 
     def stylesheets
-      %w[ default contacts ]
+      %w[ easy_contacts ]
     end
 
     def add_options!(opt)
       opt.separator ""
       opt.separator "Options:"
-      opt.on("--skip-migration",
-        "Don't generate migration") { |v| options[:skip_migration] = v }
+      opt.on("--skip-migrations",
+        "Don't generate migrations file") { |v| options[:skip_migrations] = v }
       opt.on("--skip-routes",
         "Don't map resources in routes file") { |v| options[:skip_routes] = v }
     end

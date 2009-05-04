@@ -1,1 +1,0 @@
-page["web_site_#{@web_site.id}"].remove

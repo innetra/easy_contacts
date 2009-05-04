@@ -6,6 +6,7 @@ Rails high end plugin (Rails Engines) for contacts.
 
 Rails 2.3.2 (Rails Engines).
 Auto Complete Plugin
+Haml
 
 == Install
 
@@ -19,7 +20,7 @@ This plugin requires some helpers, i18n translation, migrations, and stylesheets
 
 The easy_authentication generator provides the following options (you'll need them if the generator is run more than once):
 
-  --skip-migration
+  --skip-migrations
   --skip-routes
 
 Finally generate the phone, email, instant messenger, website, and address types for your application (you'll need to run the migrations first):

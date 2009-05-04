@@ -1,11 +1,12 @@
 class Person < Contact
 
-  belongs_to :company
-
-  validates_presence_of :name
-  validates_presence_of :last_name
-  validates_uniqueness_of :name, :scope => :last_name
-
+  validates_presence_of         :name
+  validates_uniqueness_of       :name, :scope => :last_name
+  
+  belongs_to                    :company
+  
+  accepts_nested_attributes_for :company
+  
   def full_name
     "#{self.name} #{self.last_name}"
   end
@@ -16,22 +17,6 @@ class Person < Contact
         :title => self.title, :company => self.company.name
     else
       self.title
-    end
-  end
-
-  def company_attributes=(company_attributes)
-    if (self.new_record? || self.company_id.blank?) && !company_attributes[:name].blank?
-      if company = Company.find_by_name(company_attributes[:name])
-        self.company_id = company.id
-      else
-        company = Company.new(:name => company_attributes[:name])
-        company.save(false)
-        self.company_id = company.id
-      end
-    elsif company_attributes[:name].blank?
-      self.company_id = nil
-    elsif self.company.name != company_attributes[:name]
-      self.company.update_attributes(company_attributes)
     end
   end
 
