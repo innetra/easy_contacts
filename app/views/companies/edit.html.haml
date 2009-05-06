@@ -1,6 +1,19 @@
 - content_for :header do
   stylesheet_link_tag 'easy_contacts/default', :media => :all
   stylesheet_link_tag 'easy_contacts/companies', :media => :all
+- content_for :sidebar do
+  = render :partial => "contacts/contact", :object => @company
+  - shadowbox 'people_in_this_company', :class => 'sidebar_section' do
+    - unless @company.people.blank?
+      %h1= t 'companies.show.company_people', :name => @company.name
+      %ul
+        - for person in @company.people
+          - content_tag_for(:li, person) do
+            = link_to person.full_name, person
+            %br
+            %span.comment= person.title
+    - else
+      = link_to t('companies.show.new_person'), new_company_person_url(@company)
 %h1
   .title_actions= link_to t('forms.cancel'), @company
   = t('companies.edit.title', :name => @company.name)

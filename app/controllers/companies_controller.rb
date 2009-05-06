@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"], :limit => 10, :order => "name")
+    render :layout => 'sidebar'
   end
 
   def new
@@ -24,6 +25,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by_id(params[:id])
+    render :layout => 'sidebar'
   end
 
   def edit

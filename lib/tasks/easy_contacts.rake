@@ -3,16 +3,16 @@ namespace :easy_contacts do
   task :init => :environment do
 
     # Create Phone, Email, Instant Messenger, Web Address and Addresses types
-    PhoneType.create!(:description => "Oficina")
-    PhoneType.create!(:description => "Móvil")
-    PhoneType.create!(:description => "Casa")
+    PhoneType.create!(:description => "Work")
+    PhoneType.create!(:description => "Movil")
+    PhoneType.create!(:description => "Home")
     PhoneType.create!(:description => "Fax")
     PhoneType.create!(:description => "Pager")
     PhoneType.create!(:description => "Skype")
-    PhoneType.create!(:description => "Otro")
+    PhoneType.create!(:description => "Other")
 
-    EmailType.create!(:description => "Trabajo")
-    EmailType.create!(:description => "Personal")
+    EmailType.create!(:description => "Work")
+    EmailType.create!(:description => "Home")
     EmailType.create!(:description => "Otro")
 
     InstantMessengerProtocol.create!(:name => "AIM")
@@ -22,19 +22,19 @@ namespace :easy_contacts do
     InstantMessengerProtocol.create!(:name => "MSN")
     InstantMessengerProtocol.create!(:name => "Skype")
     InstantMessengerProtocol.create!(:name => "Yahoo")
-    InstantMessengerProtocol.create!(:name => "Otro")
+    InstantMessengerProtocol.create!(:name => "Other")
 
-    InstantMessengerType.create!(:description => "Trabajo")
-    InstantMessengerType.create!(:description => "Personal")
-    InstantMessengerType.create!(:description => "Otro")
+    InstantMessengerType.create!(:description => "Work")
+    InstantMessengerType.create!(:description => "Home")
+    InstantMessengerType.create!(:description => "Other")
 
-    WebsiteType.create!(:description => "Trabajo")
-    WebsiteType.create!(:description => "Personal")
-    WebsiteType.create!(:description => "Otro")
+    WebsiteType.create!(:description => "Work")
+    WebsiteType.create!(:description => "Home")
+    WebsiteType.create!(:description => "Other")
 
-    AddressType.create!(:description => "Trabajo")
-    AddressType.create!(:description => "Personal")
-    AddressType.create!(:description => "Otro")
+    AddressType.create!(:description => "Work")
+    AddressType.create!(:description => "Home")
+    AddressType.create!(:description => "Other")
 
     # Country
     Country.create!(:name => "México")

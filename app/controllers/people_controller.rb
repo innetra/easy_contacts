@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   def index
     @people = Person.all :conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"], 
       :limit => 10, :order => "name, last_name"
+    render :layout => 'sidebar'
   end
 
   def new
@@ -25,6 +26,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find_by_id(params[:id])
+    render :layout => 'sidebar'
   end
 
   def edit
@@ -62,5 +64,5 @@ class PeopleController < ApplicationController
       person.addresses.build if person.addresses.blank?
       person
     end
-    
+        
 end

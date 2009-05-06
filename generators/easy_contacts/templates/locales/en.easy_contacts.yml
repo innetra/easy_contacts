@@ -14,7 +14,7 @@ en:
       new_address: "add new address"
   companies:
     edit:
-      cancel: "cacel"
+      cancel: "cancel"
       title: "Edit details for {{name}}"
     new:
       cancel: "cancel"
@@ -22,7 +22,7 @@ en:
     show:
       back_to_contacts: "back to contacts"
       new_person: "add new person"
-      people_at_company: "People at {{name}}"
+      company_people: "People at {{name}}"
   contacts:
     contact:
       edit_contact: "edit"
@@ -32,7 +32,7 @@ en:
       emails:
         title: "Email"
       instant_messengers:
-        title: "Instant Messages"
+        title: "Instant Messaging"
       phones:
         title: "Phone Numbers"
       websites:
