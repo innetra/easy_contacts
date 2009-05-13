@@ -23,8 +23,8 @@ class EasyContactsGenerator < Rails::Generator::Base
       # Locales
       m.template "locales/en.easy_contacts.yml",
         "config/locales/en.easy_contacts.yml"
-      m.template "locales/es-MX.easy_contacts.yml",
-        "config/locales/es-MX.easy_contacts.yml"
+      #m.template "locales/es-MX.easy_contacts.yml",
+      #  "config/locales/es-MX.easy_contacts.yml"
 
       # Necessary Routes
       unless options[:skip_routes]
@@ -47,7 +47,7 @@ class EasyContactsGenerator < Rails::Generator::Base
     end
 
     def helpers
-      %w[ addresses emails form instant_messengers people phones shadowbox websites ]
+      %w[ addresses emails instant_messengers people phones websites ]
     end
 
     def stylesheets
