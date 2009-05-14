@@ -4,3 +4,5 @@
   = form.text_field :address
   = insert_email_type_options form
   = insert_delete_email_link form
+  %br
+  = form.error_message_on :address

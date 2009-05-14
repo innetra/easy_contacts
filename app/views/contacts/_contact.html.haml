@@ -2,7 +2,7 @@
   %h1
     .title_actions= link_to t('contacts.contact.edit_contact'), edit_polymorphic_url(contact)
     = t 'contacts.show.title', :name => contact.name
-  - unless contact.phones.blank?
+  - unless contact.phones.empty?
     %table
       %tr
         %td.label= t 'activerecord.attributes.phone.number'
@@ -11,7 +11,7 @@
             = phone.number
             %span.comment= phone.phone_type.description
             %br
-  - unless contact.emails.blank?
+  - unless contact.emails.empty?
     %table
       %tr
         %td.label= t 'activerecord.attributes.email.address'
@@ -20,7 +20,7 @@
             = auto_link email.address
             %span.comment= email.email_type.description
             %br
-  - unless contact.websites.blank?
+  - unless contact.websites.empty?
     %table
       %tr
         %td.label= t 'activerecord.attributes.website.address'
@@ -29,7 +29,7 @@
             = auto_link website.address
             %span.comment= website.website_type.description
             %br
-  - unless contact.addresses.blank?
+  - unless contact.addresses.empty?
     %table
       - for address in contact.addresses
         %tr

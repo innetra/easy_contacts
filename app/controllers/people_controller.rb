@@ -1,13 +1,15 @@
+require 'ostruct'
+
 class PeopleController < ApplicationController
 
   def index
-    @people = Person.all :conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"], 
+    @people = Person.all :conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"],
       :limit => 10, :order => "name, last_name"
-    render :layout => 'sidebar'
   end
 
   def new
-    @person = build_person_basic_items(Person.new)
+    @person = Person.new
+    @person.setup_child_elements
   end
 
   def create
@@ -26,11 +28,11 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find_by_id(params[:id])
-    render :layout => 'sidebar'
   end
 
   def edit
-    @person = build_person_basic_items(Person.find_by_id(params[:id]))
+    @person = Person.find_by_id(params[:id])
+    @person.setup_child_elements
   end
 
   def update
@@ -48,21 +50,4 @@ class PeopleController < ApplicationController
     end
   end
 
-  protected
-  
-    def build_person_basic_items(person)
-      if person.phones.blank?
-        person.phones.build #work
-        person.phones.build :phone_type_id => 4 # fax
-      end
-      if person.emails.blank?
-        person.emails.build
-        person.emails.build      
-      end
-      person.instant_messengers.build if person.instant_messengers.blank?
-      person.websites.build if person.websites.blank?
-      person.addresses.build if person.addresses.blank?
-      person
-    end
-        
 end

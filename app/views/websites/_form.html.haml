@@ -1,6 +1,6 @@
 - content_tag_for :li, form.object do
-  - unless form.object.new_record?
-    = form.hidden_field :id
   = form.text_field :address
   = insert_website_type_options form
   = insert_delete_website_link form
+  %br
+  = form.error_message_on :address

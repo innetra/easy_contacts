@@ -5,4 +5,6 @@ class Company < Contact
 
   has_many                :people
 
+  default_scope :order => 'name DESC'
+
 end

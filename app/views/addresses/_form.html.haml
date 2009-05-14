@@ -2,23 +2,31 @@
   .type
     = insert_address_type_options form
     = insert_delete_address_link   form
-  - unless form.object.new_record?
-    = form.hidden_field :id
   %p
     = form.text_area :address, :size => '50x3'
+    %br
+    = form.error_message_on :address
   %p
     = form.label :city_name
     %br
     = form.text_field :city_name
+    %br
+    = form.error_message_on :city_name
   %p
     = form.label :province_name
     %br
-    = form.text_field :province_name 
+    = form.text_field :province_name
+    %br
+    = form.error_message_on :province_name
   %p
     = form.label :country_name
     %br
-    = form.text_field :country_name 
+    = form.text_field :country_name
+    %br
+    = form.error_message_on :country_name
   %p
     = form.label :zip
     %br
     = form.text_field :zip, :size => '5'
+    %br
+    = form.error_message_on :zip

@@ -2,11 +2,11 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all(:conditions => ["name LIKE ?", "%#{params[:search]}%"], :limit => 10, :order => "name")
-    render :layout => 'sidebar'
   end
 
   def new
     @company = build_company_basic_items(Company.new)
+    @company.setup_child_elements
   end
 
   def create
@@ -25,11 +25,11 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by_id(params[:id])
-    render :layout => 'sidebar'
   end
 
   def edit
     @company = build_company_basic_items(Company.find_by_id(params[:id]))
+    @company.setup_child_elements
   end
 
   def update
@@ -48,7 +48,7 @@ class CompaniesController < ApplicationController
   end
 
   protected
-  
+
     def build_company_basic_items(company)
       if company.phones.blank?
         company.phones.build #work
@@ -56,7 +56,7 @@ class CompaniesController < ApplicationController
       end
       if company.emails.blank?
         company.emails.build
-        company.emails.build      
+        company.emails.build
       end
       company.instant_messengers.build if company.instant_messengers.blank?
       company.websites.build if company.websites.blank?

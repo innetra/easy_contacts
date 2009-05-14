@@ -1,12 +1,11 @@
-- content_for :header do
-  = stylesheet_link_tag 'easy_contacts/default', :media => :all
-  = stylesheet_link_tag 'easy_contacts/people', :media => :all
-- content_for :sidebar do
+#sidebar
   = render :partial => 'contacts/contact', :object => @person
   - unless @person.company.blank?
     = render :partial => 'contacts/contact', :object => @person.company
-%h1
-  .title_actions= link_to t('people.show.back_to_contacts'), contacts_url 
-  = @person.full_name
-  %br
-  %span.comment= @person.title_description
+#page.sidebar
+  - shadowbox 'page_content' do
+    %h1
+      .title_actions= link_to t('people.show.back_to_contacts'), contacts_url
+      = @person.full_name
+      %br
+      %span.comment= @person.title_description

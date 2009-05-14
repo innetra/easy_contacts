@@ -1,12 +1,11 @@
-- content_for :header do
-  stylesheet_link_tag 'easy_contacts/default', :media => :all
-  stylesheet_link_tag 'easy_contacts/companies', :media => :all
-%h1
-  .title_actions= link_to t('companies.new.cancel'), contacts_url
-  = t('companies.new.title')
-- form_for @company do |form|
-  = render form
-  %h1
-  %p
-    = submit_tag t('forms.save')
-    = link_to t('forms.cancel'), contacts_url, :class => :red
+#page
+  - shadowbox 'page_content' do
+    %h1
+      .title_actions= link_to t('companies.new.cancel'), contacts_url
+      = t('companies.new.title')
+    - form_for @company do |form|
+      = render form
+      %h1
+      %p
+        = submit_tag t('forms.save')
+        = link_to t('forms.cancel'), contacts_url, :class => :red

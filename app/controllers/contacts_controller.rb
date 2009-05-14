@@ -1,7 +1,5 @@
 class ContactsController < ApplicationController
-  
-  layout 'sidebar'
-  
+
   def index
     if params.has_key?(:search)
       @contacts = Contact.all(:conditions => ["name LIKE ? OR last_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"],
@@ -16,5 +14,5 @@ class ContactsController < ApplicationController
       format.xml  { render :xml => @contacts }
     end
   end
-  
+
 end

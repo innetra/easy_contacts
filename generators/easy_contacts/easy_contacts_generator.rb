@@ -47,7 +47,7 @@ class EasyContactsGenerator < Rails::Generator::Base
     end
 
     def helpers
-      %w[ addresses emails instant_messengers people phones websites ]
+      %w[ addresses contacts emails instant_messengers people phones websites ]
     end
 
     def stylesheets
@@ -86,7 +86,7 @@ class EasyContactsGenerator < Rails::Generator::Base
   map.resources :people
   map.resources :phones, :only => :destroy
   map.resources :provinces, :only => :index
-  map.resources :web_sites, :only => :destroy
+  map.resources :websites, :only => :destroy
   # Easy Contacts
         }
       end

@@ -1,4 +1,5 @@
 en:
+
   activerecord:
     attributes:
       phone:
@@ -7,25 +8,28 @@ en:
         address: "Email"
       website:
         address: "Website"
+
   addresses:
     helper:
-      delete_address: "delete"
-      delete_address_confirmation: "Are you shure?"
-      new_address: "add new address"
+      delete_address: "Delete"
+      delete_address_confirmation: "Are you sure?"
+      new_address: "Add new address"
+
   companies:
     edit:
-      cancel: "cancel"
+      cancel: "Cancel"
       title: "Edit details for {{name}}"
     new:
-      cancel: "cancel"
+      cancel: "Cancel"
       title: "New Company"
     show:
-      back_to_contacts: "back to contacts"
-      new_person: "add new person"
+      back: "Back"
+      new_person: "Create new contact"
       company_people: "People at {{name}}"
+
   contacts:
     contact:
-      edit_contact: "edit"
+      edit_contact: "Edit"
     form:
       addresses:
         title: "Address"
@@ -38,39 +42,45 @@ en:
       websites:
         title: "Internet"
     index:
-      new_company: "add new company"
-      new_person: "add new contact"
+      new_company: "Create new company"
+      new_person: "Create new contact"
       people_count: "{{people_count}} contacts"
       title: "Contacts"
     show:
-      edit_contact: "edit"
+      edit_contact: "Edit"
       title: "{{name}}"
+
   emails:
     helper:
-      delete_email: "delete"
+      delete_email: "Delete"
       delte_email_confirmation: "Are you shure?"
-      new_email: "add new email"
+      new_email: "Add new email"
+
   instant_messengers:
     helper:
-      delete_instant_messenger: "delete"
+      delete_instant_messenger: "Delete"
       delete_instant_messenger_confirmation: "Are you shure?"
-      new_instant_messenger: "add new nick"
+      new_instant_messenger: "Add new nick"
+
   people:
     edit:
       title: "Edit details for {{full_name}}"
     new:
-      cancel: "cancel"
+      cancel: "Cancel"
+      submit: 'Save'
       title: "New Contact"
     show:
       back_to_contacts: "back to contacts"
       title_description: "{{title}} at {{company}}"
+
   phones:
     helper:
-      delete_phone: "delete"
+      delete_phone: "Delete"
       delete_phone_confirmation: "Are you shure?"
-      new_phone: "add new phone number"
+      new_phone: "Add new phone number"
+
   websites:
     helper:
-      delete_website: "delete"
+      delete_website: "Delete"
       delte_website_confirmation: "Are you shure?"
-      new_website: "add new email"
+      new_website: "Add new website"

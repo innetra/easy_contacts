@@ -1,5 +1,5 @@
 module WebsitesHelper
-  
+
   # Insert existing nested websites
   def insert_websites(form)
     # Existing owner's websites
@@ -9,7 +9,7 @@ module WebsitesHelper
       end
     end
   end
-  
+
   # Insert new nested websites
   def insert_new_website_link(form)
     # New website link
@@ -21,25 +21,25 @@ module WebsitesHelper
       end
     end
   end
-  
+
   # Insert website type select tag (collection_select)
   def insert_website_type_options(form)
-    form.collection_select :website_type_id, WebsiteType.all, 
+    form.collection_select :website_type_id, WebsiteType.all,
       :id, :description, {}
   end
-  
+
   # Insert delete website link
   def insert_delete_website_link(form)
-    # If it's a new record it will remove only the html, 
+    # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('websites.helper.delete_website'), 
+      link_to_function t('websites.helper.delete_website'),
         "$(this).up('li').remove();", :class => :red
     else
-      link_to_remote t('websites.helper.delete_website'), :url => form.object, 
-        :confirm => t('websites.helper.delete_website_confirmation'), 
+      link_to_remote t('websites.helper.delete_website'), :url => form.object,
+        :confirm => t('websites.helper.delete_website_confirmation'),
           :method => :delete, :html => { :class => :red }
     end
   end
-  
+
 end
