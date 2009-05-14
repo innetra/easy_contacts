@@ -1,5 +1,5 @@
 module EmailsHelper
-  
+
   # Insert existing nested email
   def insert_emails(form)
     # Existing owner's emails
@@ -9,7 +9,7 @@ module EmailsHelper
       end
     end
   end
-  
+
   # Insert new nested email
   def insert_new_email_link(form)
     # New email link
@@ -21,23 +21,23 @@ module EmailsHelper
       end
     end
   end
-  
+
   # Insert email type select tag (collection_select)
   def insert_email_type_options(form)
-    form.collection_select :email_type_id, EmailType.all, 
+    form.collection_select :email_type_id, EmailType.all,
       :id, :description, {}
   end
-  
+
   # Insert delete email link
   def insert_delete_email_link(form)
-    # If it's a new record it will remove only the html, 
+    # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('emails.helper.delete_email'), 
-        "$(this).up('li').remove();", :class => :red
+      link_to_function t('emails.helper.delete_email'),
+        "$(this).parent('li').remove()", :class => :red
     else
-      link_to_remote t('emails.helper.delete_email'), :url => form.object, 
-        :confirm => t('emails.helper.delete_email_confirmation'), 
+      link_to_remote t('emails.helper.delete_email'), :url => form.object,
+        :confirm => t('emails.helper.delete_email_confirmation'),
         :method => :delete, :html => { :class => :red }
     end
   end

@@ -1,5 +1,5 @@
 module PhonesHelper
-  
+
   # Insert existing nested phone numbers
   def insert_phones(form)
     # Existing owner's phones
@@ -9,7 +9,7 @@ module PhonesHelper
       end
     end
   end
-  
+
   # Insert new nested phone number
   def insert_new_phone_link(form)
     # New phone link
@@ -21,22 +21,22 @@ module PhonesHelper
       end
     end
   end
-  
+
   # Insert phone type select tag (collection_select)
   def insert_phone_type_options(form)
     form.collection_select :phone_type_id, PhoneType.all, :id, :description, {}
   end
-  
+
   # Insert delete phone link
   def insert_delete_phone_link(form)
-    # If it's a new record it will remove only the html, 
+    # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('phones.helper.delete_phone'), "$(this).up('li').remove();", :class => :red
+      link_to_function t('phones.helper.delete_phone'), "$(this).parent('li').remove()", :class => :red
     else
-      link_to_remote t('phones.helper.delete_phone'), :url => form.object, 
+      link_to_remote t('phones.helper.delete_phone'), :url => form.object,
         :confirm => t('phones.helper.delete_phone_confirmation'), :method => :delete, :html => { :class => :red }
     end
   end
-  
+
 end

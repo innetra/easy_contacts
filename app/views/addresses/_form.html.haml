@@ -1,7 +1,7 @@
 - content_tag_for :li, form.object do
   .type
     = insert_address_type_options form
-    = insert_delete_address_link   form
+    = insert_delete_address_link form
   %p
     = form.text_area :address, :size => '50x3'
     %br

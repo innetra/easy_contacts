@@ -1,5 +1,5 @@
 module AddressesHelper
-  
+
   # Insert existing nested address numbers
   def insert_addresses(form)
     # Existing owner's addresses
@@ -9,7 +9,7 @@ module AddressesHelper
       end
     end
   end
-  
+
   # Insert new nested address number
   def insert_new_address_link(form)
     # New address link
@@ -21,25 +21,25 @@ module AddressesHelper
       end
     end
   end
-  
+
   # Insert address type select tag (collection_select)
   def insert_address_type_options(form)
-    form.collection_select :address_type_id, AddressType.all, 
+    form.collection_select :address_type_id, AddressType.all,
       :id, :description, {}
   end
-  
+
   # Insert delete address link
   def insert_delete_address_link(form)
-    # If it's a new record it will remove only the html, 
+    # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('addresses.helper.delete_address'), 
-        "$(this).up('li').remove();", :class => :red
+      link_to_function t('addresses.helper.delete_address'),
+        "$(this).parent('.address').remove()", :class => :red
     else
-      link_to_remote t('addresses.helper.delete_address'), :url => form.object, 
+      link_to_remote t('addresses.helper.delete_address'), :url => form.object,
         :confirm => t('addresses.helper.delete_address_confirmation'),
         :method => :delete, :html => { :class => :red }
     end
   end
-  
+
 end

@@ -34,7 +34,7 @@ module WebsitesHelper
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
       link_to_function t('websites.helper.delete_website'),
-        "$(this).up('li').remove();", :class => :red
+        "$(this).parent('li').remove()", :class => :red
     else
       link_to_remote t('websites.helper.delete_website'), :url => form.object,
         :confirm => t('websites.helper.delete_website_confirmation'),
