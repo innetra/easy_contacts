@@ -16,10 +16,11 @@ class PeopleController < ApplicationController
     @person = Person.new(params[:person])
     respond_to do |format|
       if @person.save
-        flash[:notice] = t('people.flash.create')
+        flash[:notice] = t('people.create.flash.notice')
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
+        flash[:error] = t('people.create.flash.notice')
         format.html { render :action => "new" }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end
@@ -40,10 +41,11 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        flash[:notice] = t('people.flash.update')
+        flash[:notice] = t('people.update.flash.notice')
         format.html { redirect_to(@person) }
         format.xml  { head :ok }
       else
+        flash[:error] = t('people.update.flash.error')
         format.html { render :action => "edit" }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
       end

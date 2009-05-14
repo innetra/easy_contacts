@@ -1,4 +1,4 @@
-#page
+#page.people
   - shadowbox 'page_content' do
     %h1
       .title_actions
@@ -9,4 +9,5 @@
       %hr
       %p
         = submit_tag t('people.edit.submit')
+        &nbsp;|&nbsp;
         = link_to t('people.edit.cancel'), @person, :class => 'red'

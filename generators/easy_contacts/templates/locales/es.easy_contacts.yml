@@ -16,6 +16,10 @@ ses:
       new_address: 'Crear nuevo Domicilio'
 
   companies:
+    create:
+      flash:
+        notice: 'Compañía creada.'
+        error: 'Compañía no creada.'
     edit:
       cancel: 'Cancelar'
       submit: 'Guardar'
@@ -24,6 +28,10 @@ ses:
       cancel: 'Cancelar'
       submit: 'Guardar'
       title: 'Nueva Compañía'
+    update:
+      flash:
+        notice: 'Compañía actualizada.'
+        error: 'Compañía no actualizada.'
     show:
       back: 'Regresar'
       new_person: 'Crear nuevo Contacto'
@@ -65,6 +73,10 @@ ses:
       new_instant_messenger: 'Agregar otro Alias'
 
   people:
+    create:
+      flash:
+        notice: 'Contacto creado.'
+        error: 'Contacto no creado.'
     edit:
       cancel: 'Cancelar'
       submit: 'Guardar'
@@ -73,6 +85,10 @@ ses:
       cancel: 'Cancelar'
       submit: 'Guardar'
       title: 'Nuevo Contacto'
+    update:
+      flash:
+        notice: 'Contacto actualizado.'
+        error: 'Contacto no actualizado.'
     show:
       back_to_contacts: 'Regresar'
       title_description: "{{title}} en {{company}}"

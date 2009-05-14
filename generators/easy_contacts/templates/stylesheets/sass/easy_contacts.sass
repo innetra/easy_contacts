@@ -1,31 +1,42 @@
-#contact_list
-  li
-    margin: 10px 0
+.contacts
 
-  .important
-    font-size: 16px
-
-#contact_details
-  .label
-    font-size: 10px
-    font-weight: bold
-    min-width: 60px
-
-.auto_complete
-  width: 350px
-  background: #fff
-  ul
-    border: 1px solid #888
-    margin: 0
-    padding: 0
-    width: 100%
-    list-style-type: none
+  #contact_list
     li
-      margin: 0
-      padding: 3px
-      .selected
-        background-color: #ffb
-      strong.highlight
-        color: #800
-        margin: 0
-        padding: 0
+      margin: 10px 0
+      .important
+        font:
+          size: 1.2em
+          weight: bold
+
+  #contact_details
+    .label
+      font:
+        size: 0.8em
+        weight: bold
+      min-width: 60px
+    .comment
+      font:
+        size: 0.8em
+
+#addresses
+  .address
+    position: relative
+    textarea
+      width: 30em
+    .type
+      position: absolute
+      top: 0
+      left: 32em
+
+.people
+  #person_name,
+  #person_last_name
+    font:
+      size: 1.2em
+      weight: bold
+
+.companies
+  #company_name
+    font:
+      size: 1.2em
+      weight: bold

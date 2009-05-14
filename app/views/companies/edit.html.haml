@@ -1,4 +1,4 @@
-#page
+#page.companies
   - shadowbox 'page_content' do
     %h1
       .title_actions= link_to t('companies.edit.cancel'), @company
@@ -8,4 +8,5 @@
       %hr
       %p
         = submit_tag t('companies.edit.submit')
+        &nbsp;|&nbsp;
         = link_to t('companies.edit.cancel'), @company, :class => :red

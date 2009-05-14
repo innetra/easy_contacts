@@ -16,6 +16,10 @@ en:
       new_address: 'Add new address'
 
   companies:
+    create:
+      flash:
+        notice: 'Company created.'
+        error: 'Company not created.'
     edit:
       cancel: 'Cancel'
       submit: 'Save'
@@ -24,9 +28,13 @@ en:
       cancel: 'Cancel'
       submit: 'Save'
       title: 'New Company'
+    update:
+      flash:
+        notice: 'Company updated.'
+        error: 'Company not updated.'
     show:
       back: 'Back'
-      new_person: 'Create new contact'
+      new_person: 'Create new Contact'
       company_people: "People at {{name}}"
 
   contacts:
@@ -44,8 +52,8 @@ en:
       websites:
         title: 'Internet'
     index:
-      new_company: 'Create new company'
-      new_person: 'Create new contact'
+      new_company: 'Create new Company'
+      new_person: 'Create new Contact'
       people_count: "{{people_count}} contacts"
       title: 'Contacts'
     show:
@@ -65,6 +73,10 @@ en:
       new_instant_messenger: 'Add new nick'
 
   people:
+    create:
+      flash:
+        notice: 'Contact created.'
+        error: 'Contact not created.'
     edit:
       cancel: 'Cancel'
       submit: 'Save'
@@ -73,8 +85,12 @@ en:
       cancel: 'Cancel'
       submit: 'Save'
       title: 'New Contact'
+    update:
+      flash:
+        notice: 'Contact updated.'
+        error: 'Contact not updated.'
     show:
-      back_to_contacts: 'back to contacts'
+      back_to_contacts: 'Back'
       title_description: "{{title}} at {{company}}"
 
   phones:
