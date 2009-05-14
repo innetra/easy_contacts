@@ -3,84 +3,88 @@ en:
   activerecord:
     attributes:
       phone:
-        number: "Phone"
+        number: 'Phone'
       email:
-        address: "Email"
+        address: 'Email'
       website:
-        address: "Website"
+        address: 'Website'
 
   addresses:
     helper:
-      delete_address: "Delete"
-      delete_address_confirmation: "Are you sure?"
-      new_address: "Add new address"
+      delete_address: 'Delete'
+      delete_address_confirmation: 'Are you sure?'
+      new_address: 'Add new address'
 
   companies:
     edit:
-      cancel: "Cancel"
+      cancel: 'Cancel'
+      submit: 'Save'
       title: "Edit details for {{name}}"
     new:
-      cancel: "Cancel"
-      title: "New Company"
+      cancel: 'Cancel'
+      submit: 'Save'
+      title: 'New Company'
     show:
-      back: "Back"
-      new_person: "Create new contact"
+      back: 'Back'
+      new_person: 'Create new contact'
       company_people: "People at {{name}}"
 
   contacts:
     contact:
-      edit_contact: "Edit"
+      edit_contact: 'Edit'
     form:
       addresses:
-        title: "Address"
+        title: 'Address'
       emails:
-        title: "Email"
+        title: 'Email'
       instant_messengers:
-        title: "Instant Messaging"
+        title: 'Instant Messaging'
       phones:
-        title: "Phone Numbers"
+        title: 'Phone Numbers'
       websites:
-        title: "Internet"
+        title: 'Internet'
     index:
-      new_company: "Create new company"
-      new_person: "Create new contact"
+      new_company: 'Create new company'
+      new_person: 'Create new contact'
       people_count: "{{people_count}} contacts"
-      title: "Contacts"
+      title: 'Contacts'
     show:
-      edit_contact: "Edit"
+      edit_contact: 'Edit'
       title: "{{name}}"
 
   emails:
     helper:
-      delete_email: "Delete"
-      delte_email_confirmation: "Are you shure?"
-      new_email: "Add new email"
+      delete_email: 'Delete'
+      delte_email_confirmation: 'Are you shure?'
+      new_email: 'Add new email'
 
   instant_messengers:
     helper:
-      delete_instant_messenger: "Delete"
-      delete_instant_messenger_confirmation: "Are you shure?"
-      new_instant_messenger: "Add new nick"
+      delete_instant_messenger: 'Delete'
+      delete_instant_messenger_confirmation: 'Are you shure?'
+      new_instant_messenger: 'Add new nick'
 
   people:
     edit:
+      cancel: 'Cancel'
+      submit: 'Save'
       title: "Edit details for {{full_name}}"
     new:
-      cancel: "Cancel"
+      cancel: 'Cancel'
       submit: 'Save'
-      title: "New Contact"
+      title: 'New Contact'
     show:
-      back_to_contacts: "back to contacts"
+      back_to_contacts: 'back to contacts'
       title_description: "{{title}} at {{company}}"
 
   phones:
     helper:
-      delete_phone: "Delete"
-      delete_phone_confirmation: "Are you shure?"
-      new_phone: "Add new phone number"
+      delete_phone: 'Delete'
+      delete_phone_confirmation: 'Are you shure?'
+      new_phone: 'Add new phone number'
 
   websites:
     helper:
-      delete_website: "Delete"
-      delte_website_confirmation: "Are you shure?"
-      new_website: "Add new website"
+      delete_website: 'Delete'
+      delte_website_confirmation: 'Are you shure?'
+      new_website: 'Add new website'

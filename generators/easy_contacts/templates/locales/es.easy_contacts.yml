@@ -1,0 +1,90 @@
+ses:
+
+  activerecord:
+    attributes:
+      phone:
+        number: 'Teléfono'
+      email:
+        address: 'Correo Electrónico'
+      website:
+        address: 'Sitio'
+
+  addresses:
+    helper:
+      delete_address: 'Borrar'
+      delete_address_confirmation: '¿Está seguro?'
+      new_address: 'Crear nuevo Domicilio'
+
+  companies:
+    edit:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: "Editarar {{name}}"
+    new:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Nueva Compañía'
+    show:
+      back: 'Regresar'
+      new_person: 'Crear nuevo Contacto'
+      company_people: "Contactos en {{name}}"
+
+  contacts:
+    contact:
+      edit_contact: 'Editar'
+    form:
+      addresses:
+        title: 'Domicilio'
+      emails:
+        title: 'Correo Electrónico'
+      instant_messengers:
+        title: 'Mensajería Instantanea'
+      phones:
+        title: 'Teléfonos'
+      websites:
+        title: 'Internet'
+    index:
+      new_company: 'Crear nueva Compañía'
+      new_person: 'Crear nuevo Contacto'
+      people_count: "{{people_count}} contactos"
+      title: 'Contactos'
+    show:
+      edit_contact: 'Editar'
+      title: "{{name}}"
+
+  emails:
+    helper:
+      delete_email: 'Borrar'
+      delte_email_confirmation: '¿Está seguro?'
+      new_email: 'Agregar Correo Electrónico'
+
+  instant_messengers:
+    helper:
+      delete_instant_messenger: 'Borrar'
+      delete_instant_messenger_confirmation: '¿Está seguro?'
+      new_instant_messenger: 'Agregar otro Alias'
+
+  people:
+    edit:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: "Editar {{full_name}}"
+    new:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Nuevo Contacto'
+    show:
+      back_to_contacts: 'Regresar'
+      title_description: "{{title}} en {{company}}"
+
+  phones:
+    helper:
+      delete_phone: 'Borrar'
+      delete_phone_confirmation: '¿Está seguro?'
+      new_phone: 'Agregar Teléfono'
+
+  websites:
+    helper:
+      delete_website: 'Borrar'
+      delte_website_confirmation: '¿Está seguro?'
+      new_website: 'Agregar Sitio'

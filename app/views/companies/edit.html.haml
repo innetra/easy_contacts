@@ -1,11 +1,11 @@
 #page
   - shadowbox 'page_content' do
     %h1
-      .title_actions= link_to t('forms.cancel'), @company
+      .title_actions= link_to t('companies.edit.cancel'), @company
       = t('companies.edit.title', :name => @company.name)
     - form_for @company do |form|
       = render form
       %hr
       %p
-        = submit_tag t('forms.save')
-        = link_to t('forms.cancel'), @company, :class => :red
+        = submit_tag t('companies.edit.submit')
+        = link_to t('companies.edit.cancel'), @company, :class => :red
