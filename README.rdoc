@@ -34,7 +34,7 @@ Enjoy!
 == Quick Demo
 
 If you want to see a complete implementation of EasyContacts you can start in a
-snap with the following rails Application template:
+snap with the following Rails application template:
 
   rails -m http://gist.github.com/105723.txt your_new_application
 
