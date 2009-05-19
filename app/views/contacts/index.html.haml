@@ -1,19 +1,23 @@
+- title t('.title', :default => 'Contacts')
+
 #sidebar
   - shadowbox 'options_section', :class => 'sidebar_section' do
-    = link_to t('contacts.index.new_person'), new_person_url
+    = link_to t('.create_new_contact', :default => 'Create new Contact'), new_person_url
     %br
-    = link_to t('contacts.index.new_company'), new_company_url
+    = link_to t('.create_new_company', :default => 'Create new Company'), new_company_url
+
 #page.sidebar.contacts
   - shadowbox 'page_content' do
-    %h1= t 'contacts.index.title'
+    = user_feedback
     %ul#contact_list
       - for contact in @contacts
         - content_tag_for :li, contact do
-          - if contact.is_a? Person
-            = link_to contact.full_name, contact, :class => :important
-            %br
-            = contact.title_description
-          - else
-            = link_to contact.name, contact, :class => :important
-            %br
-            = t 'contacts.index.people_count', :people_count => contact.people.count
+          %p
+            - if contact.is_a? Person
+              = link_to contact.full_name, contact, :class => 'big bold'
+              %br
+              = contact.title_description
+            - else
+              = link_to contact.name, contact, :class => 'big bold'
+              %br
+              = t('.contacts_count', :contacts_count => contact.people.count, :default => '{{contacts_count}} contacts')

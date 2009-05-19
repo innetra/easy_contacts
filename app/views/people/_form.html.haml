@@ -1,36 +1,41 @@
 %table
   %tr
     %td
-      = form.label :name
-      = required_field
-      %br
-      = form.text_field :name
-      %br
-      = form.error_message_on :name
+      %p
+        %span{ :class => 'big bold' }
+          = form.label :name
+          = required_field
+          %br
+          = form.text_field :name
+        %br
+        = form.error_message_on :name
     %td
-      = form.label :last_name
-      = required_field
-      %br
-      = form.text_field :last_name
-      %br
-      = form.error_message_on :last_name
+      %p
+        %span{ :class => 'big bold' }
+          = form.label :last_name
+          = required_field
+          %br
+          = form.text_field :last_name
+        %br
+        = form.error_message_on :last_name
+%h2= t('.company_title', :default => 'Company')
 %p
   = form.label :title
   %br
   = form.text_field :title, :size => "40"
   = form.error_message_on :title
 %p
-  = form.label :company_id
+  = form.label :company_id, t('activerecord.attributes.company.name', :default => 'Company')
   %br
   %span#company_id_field
     = form.collection_select :company_id, Company.all, :id, :name, { :include_blank => true }
     = form.error_message_on :company_id
     %br
-    = link_to_function 'Create New Company', "$('#company_id_field, #company_name_field').toggle(); $('#person_company_id option:nth(0)').attr('selected', 'selected');"
+    = link_to_function t('.new_company', :default => 'New Company'), "$('#company_id_field, #company_name_field').toggle(); $('#person_company_id option:nth(0)').attr('selected', 'selected');"
   %span#company_name_field{ :style => 'display: none;'}
     - form.fields_for :company, Company.new do |company_form|
       = company_form.text_field :name
       = company_form.error_message_on :name
     %br
-    = link_to_function 'Select Existing Company', "$('#company_id_field, #company_name_field').toggle(); $('#person_company_id').val(''); $('#person_country_id option:nth(0)').attr('selected', 'selected');"
+    = link_to_function t('.existing_company', :default => 'Existing Company'), "$('#company_id_field, #company_name_field').toggle(); $('#person_company_id').val(''); $('#person_country_id option:nth(0)').attr('selected', 'selected');"
 = render :partial => 'contacts/form', :object => form

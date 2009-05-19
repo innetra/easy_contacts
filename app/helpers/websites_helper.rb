@@ -15,8 +15,9 @@ module WebsitesHelper
     # New website link
     content_tag :p do
       form.fields_for :websites, form.object.websites.new do |nested_attributes|
-        link_to_function t('websites.helper.new_website') do |page|
-           page.insert_html :bottom, :websites, :partial => 'websites/form', :object => nested_attributes
+        link_to_function t('websites.helper.new', :default => 'Add new Web Site') do |page|
+           page.insert_html :bottom, :websites, :partial => 'websites/form',
+            :object => nested_attributes
         end
       end
     end
@@ -24,8 +25,7 @@ module WebsitesHelper
 
   # Insert website type select tag (collection_select)
   def insert_website_type_options(form)
-    form.collection_select :website_type_id, WebsiteType.all,
-      :id, :description, {}
+    form.collection_select :type_id, WebsiteType.all, :id, :description, {}
   end
 
   # Insert delete website link
@@ -33,12 +33,14 @@ module WebsitesHelper
     # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('websites.helper.delete_website'),
-        "$(this).parent('li').remove()", :class => :red
+      link_to_function t('websites.helper.delete', :default => 'Delete'),
+        "$(this).parents('li.website').remove()", :class => :red
     else
-      link_to_remote t('websites.helper.delete_website'), :url => form.object,
-        :confirm => t('websites.helper.delete_website_confirmation'),
-          :method => :delete, :html => { :class => :red }
+      link_to_remote t('websites.helper.delete', :default => 'Delete'),
+        :url => form.object,
+        :confirm => t('websites.helper.delete_confirmation',
+          :default => 'Are you shure?'),
+        :method => :delete, :html => { :class => :red }
     end
   end
 

@@ -1,12 +1,13 @@
+- title t('.title', :default => 'New Contact')
+
 #page.people
   - shadowbox 'page_content' do
-    %h1
-      .title_actions= link_to t('people.new.cancel'), contacts_url
-      = t('people.new.title')
+    = user_feedback
+    .title_actions= link_to t('.cancel', :default => 'Cancel'), contacts_url
     - form_for @person do |form|
       = render form
       %hr
       %p
-        = submit_tag t('people.new.submit')
+        = submit_tag t('.submit', :default => 'Save')
         &nbsp;|&nbsp;
-        = link_to t('people.new.cancel'), contacts_url, :class => :red
+        = link_to t('.cancel', :default => 'Cancel'), contacts_url, :class => :red

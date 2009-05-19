@@ -14,14 +14,13 @@ First install the plugin in your application:
 
   script/plugin install git://github.com/innetra/easy_contacts.git
 
-This plugin requires some helpers, i18n translation, migrations, and stylesheets. Generate them with:
+This plugin requires some i18n translation files, migrations, and stylesheets. Generate them with:
 
   script/generate easy_contacts
 
 The easy_authentication generator provides the following options (you'll need them if the generator is run more than once):
 
   --skip-migrations
-  --skip-routes
 
 Finally generate the phone, email, instant messenger, website, and address types for your application (you'll need to run the migrations first):
 

@@ -1,11 +1,13 @@
+- title 'Contacts' do
+  = t('.title', :default => '{{full_name}}', :full_name => @person.full_name)
+  %span.comment= @person.title_description
+
 #sidebar
   = render :partial => 'contacts/contact', :object => @person
   - unless @person.company.blank?
     = render :partial => 'contacts/contact', :object => @person.company
+
 #page.sidebar
   - shadowbox 'page_content' do
-    %h1
-      .title_actions= link_to t('people.show.back_to_contacts'), contacts_url
-      = @person.full_name
-      %br
-      %span.comment= @person.title_description
+    = user_feedback
+    .title_actions= link_to t('.back', :default => 'Back'), contacts_url

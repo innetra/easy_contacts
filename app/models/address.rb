@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
 
   belongs_to :owner, :polymorphic => true
-  belongs_to :address_type
+  belongs_to :type, :class_name => 'AddressType'
   belongs_to :city
   belongs_to :country
   belongs_to :province

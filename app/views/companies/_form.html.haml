@@ -1,7 +1,8 @@
 %p
-  = form.label :name
-  = required_field
-  %br
-  = form.text_field :name, :size => 60
+  %span.big
+    = form.label :name
+    = required_field
+    %br
+    = form.text_field :name, :size => 60, :class => 'full_wide'
   = form.error_message_on :name
 = render :partial => 'contacts/form', :object => form

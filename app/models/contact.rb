@@ -23,7 +23,7 @@ class Contact < ActiveRecord::Base
   def setup_child_elements
     if phones.blank?
       phones.build
-      phones.build :phone_type_id => 4 # fax
+      phones.build :type_id => 4 # fax
     end
     if emails.blank?
       emails.build

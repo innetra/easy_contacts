@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = build_company_basic_items(Company.new)
+    @company = Company.new
     @company.setup_child_elements
   end
 
@@ -13,10 +13,12 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company])
     respond_to do |format|
       if @company.save
-        flash[:notice] = t("companies.flash.create")
+        flash[:notice] = t("companies.create.flash.notice", :default => 'Company created.')
         format.html { redirect_to(@company) }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
+        @company.setup_child_elements
+        flash[:error] = t("companies.create.flash.error", :default => 'Company not created.')
         format.html { render :action => "new" }
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
@@ -28,7 +30,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = build_company_basic_items(Company.find_by_id(params[:id]))
+    @company = Company.find_by_id(params[:id])
     @company.setup_child_elements
   end
 
@@ -37,31 +39,16 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        flash[:notice] = t('companies.flash.update')
+        flash[:notice] = t('companies.update.flash.notice', :default => 'Company updated.')
         format.html { redirect_to(@company) }
         format.xml  { head :ok }
       else
+        @company.setup_child_elements
+        flash[:error] = t('companies.update.flash.error', :default => 'Company not updated.')
         format.html { render :action => "edit" }
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
     end
   end
-
-  protected
-
-    def build_company_basic_items(company)
-      if company.phones.blank?
-        company.phones.build #work
-        company.phones.build :phone_type_id => 4 # fax
-      end
-      if company.emails.blank?
-        company.emails.build
-        company.emails.build
-      end
-      company.instant_messengers.build if company.instant_messengers.blank?
-      company.websites.build if company.websites.blank?
-      company.addresses.build if company.addresses.blank?
-      company
-    end
 
 end

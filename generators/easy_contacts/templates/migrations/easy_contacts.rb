@@ -5,7 +5,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     create_table  :addresses do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :address_type_id, :default => 1
+      t.integer   :type_id, :default => 1
       t.string    :address
       t.integer   :city_id
       t.integer   :province_id
@@ -30,7 +30,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     create_table  :emails do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :email_type_id, :default => 1
+      t.integer   :type_id, :default => 1
       t.string    :address
 
       t.timestamps
@@ -39,8 +39,8 @@ class CreateEasyContacts < ActiveRecord::Migration
     create_table  :instant_messengers do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :instant_messenger_type_id, :default => 1
-      t.integer   :instant_messenger_protocol_id, :default => 1
+      t.integer   :protocol_id, :default => 1
+      t.integer   :type_id, :default => 1
       t.string    :nick
 
       t.timestamps
@@ -49,7 +49,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     create_table  :phones do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :phone_type_id, :default => 1
+      t.integer   :type_id, :default => 1
       t.string    :number
 
       t.timestamps
@@ -58,7 +58,7 @@ class CreateEasyContacts < ActiveRecord::Migration
     create_table  :websites do |t|
       t.integer   :owner_id
       t.string    :owner_type
-      t.integer   :website_type_id, :default => 1
+      t.integer   :type_id, :default => 1
       t.string    :address
 
       t.timestamps

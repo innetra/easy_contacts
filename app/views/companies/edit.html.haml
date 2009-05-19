@@ -1,12 +1,13 @@
+- title t('.title', :name => @company.name, :default => 'Edit {{name}}')
+
 #page.companies
   - shadowbox 'page_content' do
-    %h1
-      .title_actions= link_to t('companies.edit.cancel'), @company
-      = t('companies.edit.title', :name => @company.name)
+    = user_feedback
+    .title_actions= link_to t('.cancel', :default => 'Cancel'), @company
     - form_for @company do |form|
       = render form
       %hr
       %p
-        = submit_tag t('companies.edit.submit')
+        = submit_tag t('.submit', :default => 'Save')
         &nbsp;|&nbsp;
-        = link_to t('companies.edit.cancel'), @company, :class => :red
+        = link_to t('.cancel', :default => 'Cancel'), @company, :class => :red

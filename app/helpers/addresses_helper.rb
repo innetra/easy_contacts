@@ -15,8 +15,9 @@ module AddressesHelper
     # New address link
     content_tag :p do
       form.fields_for :addresses, form.object.addresses.new do |nested_attributes|
-        link_to_function t('addresses.helper.new_address') do |page|
-           page.insert_html :bottom, :addresses, :partial => 'addresses/form', :object => nested_attributes
+        link_to_function t('addresses.helper.new', :default => 'add another address') do |page|
+           page.insert_html :bottom, :addresses, :partial => 'addresses/form',
+            :object => nested_attributes
         end
       end
     end
@@ -24,8 +25,7 @@ module AddressesHelper
 
   # Insert address type select tag (collection_select)
   def insert_address_type_options(form)
-    form.collection_select :address_type_id, AddressType.all,
-      :id, :description, {}
+    form.collection_select :type_id, AddressType.all, :id, :description, {}
   end
 
   # Insert delete address link
@@ -33,11 +33,13 @@ module AddressesHelper
     # If it's a new record it will remove only the html,
     # otherwise it will request record deletion using Ajax
     if form.object.new_record?
-      link_to_function t('addresses.helper.delete_address'),
-        "$(this).parent('.address').remove()", :class => :red
+      link_to_function t('addresses.helper.delete', :default => 'Delete'),
+        "$(this).parents('li.address').remove()", :class => :red
     else
-      link_to_remote t('addresses.helper.delete_address'), :url => form.object,
-        :confirm => t('addresses.helper.delete_address_confirmation'),
+      link_to_remote t('addresses.helper.delete', :default => 'Delete'),
+        :url => form.object,
+        :confirm => t('addresses.helper.delete_confirmation',
+          :default => 'Are you shure?'),
         :method => :delete, :html => { :class => :red }
     end
   end

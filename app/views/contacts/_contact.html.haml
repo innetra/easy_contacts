@@ -1,42 +1,54 @@
 - shadowbox 'contact_details', :class => 'sidebar_section'  do
   %h1
-    .title_actions= link_to t('contacts.contact.edit_contact'), edit_polymorphic_url(contact)
-    = t 'contacts.show.title', :name => contact.name
+    .title_actions= link_to t('.edit', :default => 'Edit'), edit_polymorphic_url(contact)
+    = t '.title', :name => contact.name, :default => '{{name}}'
   - unless contact.phones.empty?
     %table
       %tr
-        %td.label= t 'activerecord.attributes.phone.number'
+        %th.label= t('.phone', :default => 'Phone')
         %td
           - for phone in contact.phones
-            = phone.number
-            %span.comment= phone.phone_type.description
-            %br
+            %p
+              = phone.number
+              %span.comment= phone.type.description
   - unless contact.emails.empty?
     %table
       %tr
-        %td.label= t 'activerecord.attributes.email.address'
+        %th.label= t('.email', :default => 'Email')
         %td
           - for email in contact.emails
-            = auto_link email.address
-            %span.comment= email.email_type.description
-            %br
+            %p
+              = auto_link email.address
+              %span.comment= email.type.description
   - unless contact.websites.empty?
     %table
       %tr
-        %td.label= t 'activerecord.attributes.website.address'
+        %th.label= t('.website', :default => 'Website')
         %td
           - for website in contact.websites
-            = auto_link website.address
-            %span.comment= website.website_type.description
-            %br
+            %p
+              = auto_link website.address
+              %span.comment= website.type.description
+  - unless contact.instant_messengers.empty?
+    %table
+      %tr
+        %th.label= t('.instant_messenger', :default => 'Messaging')
+        %td
+          - for instant_messenger in contact.instant_messengers
+            %p
+              %span.bold
+              = instant_messenger.nick
+              %span.comment= instant_messenger.protocol.name
   - unless contact.addresses.empty?
     %table
       - for address in contact.addresses
         %tr
-          %td.label= address.address_type.description
+          %th.label
+            %p= address.type.description
           %td
-            = address.address.gsub /\n/, '<br />'
-            %br
-            = "#{address.city.name}, #{address.province.name}"
-            %br
-            = "#{address.country.name}&nbsp;#{address.zip}"
+            %p
+              = address.address.gsub /\n/, '<br />'
+              %br
+              = "#{address.city.name}, #{address.province.name}"
+              %br
+              = "#{address.country.name}&nbsp;#{address.zip}"

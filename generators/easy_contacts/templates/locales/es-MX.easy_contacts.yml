@@ -1,0 +1,107 @@
+'es-MX':
+
+  activerecord:
+
+    models:
+      address: 'Domicilio'
+      company: 'Compañía'
+      person: 'Contacto'
+
+    attributes:
+
+      address:
+        address: 'Domicilio'
+        city_name: 'Ciudad'
+        country_name: 'País'
+        province_name: 'Estado'
+        zip: 'Código Postal'
+
+      company:
+        name: 'Companía'
+
+      person:
+        last_name: 'Apellido(s)'
+        name: 'Nombre(s)'
+        title: 'Título'
+
+  addresses:
+    helper:
+      new: 'Agregar'
+      delete: 'Borrar'
+      delete_confirmation: '¿Está seguro?'
+
+  companies:
+    create:
+      flash:
+        notice: 'Compañía creada.'
+        error: 'Compañía no creada.'
+    new:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Nueva Compañía'
+    show:
+      back: 'Regresar'
+    update:
+      flash:
+        notice: 'Compañía actualizada.'
+        error: 'Compañía no actualizada.'
+
+  contacts:
+    contact:
+      edit: 'Editar'
+      phone: 'Teléfono'
+      email: 'Correo'
+      instant_messenger: 'Mensajería'
+    index:
+      contacts_count: "{{contacts_count}} contacto(s)"
+    form:
+      addresses_title: 'Domcilios'
+      phones_title: 'Teléfonos'
+      emails_title: 'Correo Electrónico'
+      instant_messengers_title: 'Mensajería Instantanea'
+      websites_title: 'Internet'
+
+  emails:
+    helper:
+      new: 'Agregar'
+      delete: 'Borrar'
+      delete_confirmation: '¿Está seguro?'
+
+  instant_messengers:
+    helper:
+      new: 'Agregar'
+      delete: 'Borrar'
+      delete_confirmation: '¿Está seguro?'
+
+  people:
+    form:
+      company_title: 'Companía'
+      new_company: 'Nueva Compañía'
+      existing_company: 'Compañía Registrada'
+    new:
+      cancel: 'Cancelar'
+      edit: 'Editar'
+      submit: 'Guardar'
+      title: 'Nuevo Contacto'
+    create:
+      flash:
+        notice: 'Contacto creado.'
+        error: 'Contacto no creado.'
+    show:
+      back: 'Regresar'
+    update:
+      flash:
+        error: 'Contacto no actualizado.'
+        notice: 'Contacto actualizado.'
+
+  phones:
+    helper:
+      new: 'Agregar'
+      delete: 'Borrar'
+      delete_confirmation: '¿Está seguro?'
+
+  websites:
+    helper:
+      new: 'Agregar'
+      delete: 'Borrar'
+      delete_confirmation: '¿Está seguro?'

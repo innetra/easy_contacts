@@ -15,8 +15,13 @@ class Person < Contact
 
   def title_description
     unless self.company_id.blank?
-      I18n.translate "people.show.title_description",
-        :title => self.title, :company => self.company.name
+      unless self.title.blank?
+        I18n.translate "people.show.title_description",
+          :default => '{{title}} at {{company}}',
+          :title => self.title, :company => self.company.name
+      else
+        self.company.name
+      end
     else
       self.title
     end
