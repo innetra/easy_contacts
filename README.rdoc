@@ -4,10 +4,10 @@ Rails fullstack contacts management plugin (with Rails Engines).
 
 == Requirements
 
-Rails 2.3.2 (support for {Rails Engines}[http://railscasts.com/episodes/149-rails-engines] needed).
-{Auto Complete}[http://github.com/rails/auto_complete/tree/master] Plugin
-{Haml}[http://haml.hamptoncatlin.com/]
-{EasyGenerators}[http://github.com/innetra/easy_generators/tree/master]
+* Rails 2.3.2 (support for {Rails Engines}[http://railscasts.com/episodes/149-rails-engines] needed).
+* {Auto Complete}[http://github.com/rails/auto_complete/tree/master] Plugin
+* {Haml}[http://haml.hamptoncatlin.com/]
+* {EasyGenerators}[http://github.com/innetra/easy_generators/tree/master]
 
 == Install
 
