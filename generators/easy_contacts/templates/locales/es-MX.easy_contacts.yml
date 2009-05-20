@@ -41,6 +41,7 @@
       title: 'Nueva Compañía'
     show:
       back: 'Regresar'
+      company_contacts: 'Contactos'
     update:
       flash:
         notice: 'Compañía actualizada.'

@@ -4,7 +4,7 @@
   = render :partial => "contacts/contact", :object => @company
   - unless @company.people.empty?
     - shadowbox 'company_contacts', :class => 'sidebar_section' do
-      %h1= t '.company_contacts', :name => @company.name, :default => 'Contacts at {{name}}'
+      %h1= t '.company_contacts', :default => 'Contacts'
       - for person in @company.people
         %p
           = link_to person.full_name, person
