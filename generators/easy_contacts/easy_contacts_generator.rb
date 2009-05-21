@@ -17,6 +17,7 @@ class EasyContactsGenerator < Rails::Generator::Base
 
       # Detailed addresses (street number, apartment number, and area)
       if options[:detailed_addresses]
+        m.directory('app/views/addresses')
         m.file 'views/addresses/_address.html.haml',
           'app/views/addresses/_address.html.haml'
         m.file 'views/addresses/_form.html.haml',
