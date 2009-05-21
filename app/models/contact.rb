@@ -21,17 +21,17 @@ class Contact < ActiveRecord::Base
 
   # Setup child elements for contact's
   def setup_child_elements
-    if phones.blank?
+    if phones.empty?
       phones.build
       phones.build :type_id => 4 # fax
     end
-    if emails.blank?
+    if emails.empty?
       emails.build
       emails.build
     end
-    instant_messengers.build if instant_messengers.blank?
-    websites.build if websites.blank?
-    addresses.build if addresses.blank?
+    instant_messengers.build if instant_messengers.empty?
+    websites.build if websites.empty?
+    addresses.build if addresses.empty?
   end
 
 end

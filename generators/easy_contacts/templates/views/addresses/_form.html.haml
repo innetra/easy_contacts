@@ -1,0 +1,60 @@
+- content_tag_for :li, form.object do
+  - unless form.object.new_record?
+    = form.hidden_field :id
+  .type
+    %p
+      %br
+      = insert_address_type_options form
+      = insert_delete_address_link form
+  %p
+    = form.label :address
+    %br
+    = form.text_field :address
+    %br
+    = form.error_message_on :address
+  %table.street_number
+    %tr
+      %td
+        %p
+          = form.label :number, t('.street_number', :default => 'Street #')
+          %br
+          = form.text_field :number
+          %br
+          = form.error_message_on :number
+      %td
+        %p
+          = form.label :apartment, t('.apartment_number', :default => 'Apt. #')
+          %br
+          = form.text_field :apartment
+          %br
+          = form.error_message_on :apartment
+  %p
+    = form.label :area, t('.area', :default => 'Area')
+    %br
+    = form.text_field :area
+    %br
+    = form.error_message_on :area
+  %p
+    = form.label :city_name
+    %br
+    = form.text_field :city_name
+    %br
+    = form.error_message_on :city_name
+  %p
+    = form.label :province_name
+    %br
+    = form.text_field :province_name
+    %br
+    = form.error_message_on :province_name
+  %p
+    = form.label :country_name
+    %br
+    = form.text_field :country_name
+    %br
+    = form.error_message_on :country_name
+  %p
+    = form.label :zip
+    %br
+    = form.text_field :zip, :size => '5', :class => 'zip'
+    %br
+    = form.error_message_on :zip

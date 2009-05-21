@@ -6,6 +6,9 @@
       address: 'Domicilio'
       company: 'Compañía'
       person: 'Contacto'
+      city: 'Ciudad'
+      province: 'Estado'
+      country: 'País'
 
     attributes:
 
@@ -16,19 +19,32 @@
         province_name: 'Estado'
         zip: 'Código Postal'
 
+      city:
+        name: Ciudad
+
       company:
         name: 'Companía'
+
+      country:
+        name: 'País'
 
       person:
         last_name: 'Apellido(s)'
         name: 'Nombre(s)'
         title: 'Título'
 
+      province:
+        name: 'Estado'
+
   addresses:
     helper:
       new: 'Agregar'
       delete: 'Borrar'
       delete_confirmation: '¿Está seguro?'
+    form:
+      apartment_number: 'Núm. Int.'
+      area: 'Colonia'
+      street_number: 'Núm. Ext.'
 
   companies:
     create:

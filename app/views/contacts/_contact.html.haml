@@ -7,48 +7,25 @@
       %tr
         %th.label= t('.phone', :default => 'Phone')
         %td
-          - for phone in contact.phones
-            %p
-              = phone.number
-              %span.comment= phone.type.description
+          = render contact.phones
   - unless contact.emails.empty?
     %table
       %tr
         %th.label= t('.email', :default => 'Email')
         %td
-          - for email in contact.emails
-            %p
-              = auto_link email.address
-              %span.comment= email.type.description
+          = render contact.emails
   - unless contact.websites.empty?
     %table
       %tr
         %th.label= t('.website', :default => 'Website')
         %td
-          - for website in contact.websites
-            %p
-              = auto_link website.address
-              %span.comment= website.type.description
+          = render contact.websites
   - unless contact.instant_messengers.empty?
     %table
       %tr
         %th.label= t('.instant_messenger', :default => 'Messaging')
         %td
-          - for instant_messenger in contact.instant_messengers
-            %p
-              %span.bold
-              = instant_messenger.nick
-              %span.comment= instant_messenger.protocol.name
+          = render contact.instant_messengers
   - unless contact.addresses.empty?
     %table
-      - for address in contact.addresses
-        %tr
-          %th.label
-            %p= address.type.description
-          %td
-            %p
-              = address.address.gsub /\n/, '<br />'
-              %br
-              = "#{address.city.name}, #{address.province.name}"
-              %br
-              = "#{address.country.name}&nbsp;#{address.zip}"
+      = render contact.addresses

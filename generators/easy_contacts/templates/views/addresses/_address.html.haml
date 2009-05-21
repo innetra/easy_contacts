@@ -1,0 +1,17 @@
+%tr
+  %th.label
+    %p= address.type.description
+  %td
+    %p
+      = address.address
+      - unless address.number.blank?
+        = "\##{address.number}"
+      - unless address.apartment.blank?
+        = "-&nbsp;#{address.apartment}"
+      - unless address.area.blank?
+        %br
+        = "#{address.area}"
+      %br
+      = "#{address.city.name}, #{address.province.name}"
+      %br
+      = "#{address.country.name}&nbsp;#{address.zip}"
