@@ -1,4 +1,6 @@
 - content_tag_for :li, form.object do
+  - unless form.object.new_record?
+    = form.hidden_field :id
   .type
     = insert_address_type_options form
     = insert_delete_address_link form
