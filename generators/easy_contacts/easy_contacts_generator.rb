@@ -37,7 +37,7 @@ class EasyContactsGenerator < Rails::Generator::Base
   protected
 
     def banner
-      "Usage: #{$0} easy_contacts [--skip-migration] [--detailed_addresses]"
+      "Usage: #{$0} easy_contacts [--skip-migration] [--detailed-addresses]"
     end
 
     def add_options!(opt)
@@ -45,7 +45,7 @@ class EasyContactsGenerator < Rails::Generator::Base
       opt.separator 'Options:'
       opt.on('--skip-migrations',
         'Don\'t generate migrations file') { |v| options[:skip_migrations] = v }
-      opt.on('--detailed_addresses',
+      opt.on('--detailed-addresses',
         'Generate detailed addresses view\'s') { |v| options[:detailed_addresses] = v }
     end
 
